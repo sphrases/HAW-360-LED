@@ -24,7 +24,6 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
         RaycastHit _hitInfo;
         Physics.Raycast(_controllerPositionWithoutY, _rayDirection, out _hitInfo);
         float _clampedYPosition = Mathf.Clamp(_controllerPosition.y, Cylinder.transform.position.y - Cylinder.transform.localScale.y, Cylinder.transform.position.y + Cylinder.transform.localScale.y);
-        Debug.Log(_clampedYPosition);
         Vector3 _closestPosition = new Vector3(_hitInfo.point.x, _clampedYPosition, _hitInfo.point.z);
         return _closestPosition; // under the assumption that in the area of the controllers only the cylinder will have a collider
     }

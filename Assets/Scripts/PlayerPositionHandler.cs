@@ -15,7 +15,6 @@ public class PlayerPositionHandler : MonoBehaviour
     void UpdatePosition()
     {
         Vector2 _newPosition = ThisPlayersController.GetComponent<CylinderToFlatscreenPosition>().GetPlayerPosition();
-        RectTransform _rectTransform = GetComponent<RectTransform>();
-        _rectTransform.anchoredPosition = new Vector3(_newPosition.x, _newPosition.y, 0);
+        transform.position = new Vector3(_newPosition.x, _newPosition.y, 0.01f);
     }
 }
