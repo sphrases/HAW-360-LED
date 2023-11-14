@@ -27,7 +27,7 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
     Vector2 TransferCylinderPositionToFlatscreen(Vector3 _closestPositionOnCylinderToController)
     {
         Vector3 _cylinderPosition = Cylinder.transform.position;
-        float _angle = Mathf.Rad2Deg * Mathf.Atan2((_closestPositionOnCylinderToController.z - _cylinderPosition.z), (_closestPositionOnCylinderToController.x - _cylinderPosition.x)); // this is for unitCircle, position.x and position.y need to be substracted in case center of cylinder is not at 0,0
+        float _angle = 180 + Mathf.Rad2Deg * Mathf.Atan2((_closestPositionOnCylinderToController.z - _cylinderPosition.z), (_closestPositionOnCylinderToController.x - _cylinderPosition.x)); // this is for unitCircle, position.x and position.y need to be substracted in case center of cylinder is not at 0,0
         
         if(_angle < 0)
         {
@@ -36,7 +36,7 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
 
         float _normalizedY = _closestPositionOnCylinderToController.y / (Cylinder.transform.localScale.y * 2);
         RectTransform _flatscreenRectTransform = Flatscreen.GetComponent<RectTransform>();
-        float _xOnFlatscreen = ((_angle/360) * _flatscreenRectTransform.rect.width) - (_flatscreenRectTransform.rect.width / 2); // x coordinate is basically a percentage of the screenWidth measured by percentage of angle to 360° (assumption that center of screen is 0,0)
+        float _xOnFlatscreen = ((_angle/360) * _flatscreenRectTransform.rect.width) - (_flatscreenRectTransform.rect.width / 2); // x coordinate is basically a percentage of the screenWidth measured by percentage of angle to 360ï¿½ (assumption that center of screen is 0,0)
         float _yOnFlatscreen = (_normalizedY * _flatscreenRectTransform.rect.height) - (_flatscreenRectTransform.rect.height / 2); // y coordinate is basically a percentage of screenHeight (assumption that center of screen is 0,0)
         return new Vector2(_xOnFlatscreen, _yOnFlatscreen);
     }
