@@ -405,6 +405,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
+        type: 3}
+      propertyPath: Cylinder
+      value: 
+      objectReference: {fileID: 1756022428}
+    - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
+        type: 3}
+      propertyPath: cylinder
+      value: 
+      objectReference: {fileID: 1182053483}
+    - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
+        type: 3}
+      propertyPath: Flatscreen
+      value: 
+      objectReference: {fileID: 1384597930}
+    - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
+        type: 3}
+      propertyPath: flatscreen
+      value: 
+      objectReference: {fileID: 1384597930}
     - target: {fileID: 7955645690657308414, guid: 7ec1115ec9a9eb24194083740cc7bb46,
         type: 3}
       propertyPath: maxRange
@@ -507,6 +527,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ec1115ec9a9eb24194083740cc7bb46, type: 3}
+--- !u!1 &408623806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8754898407607026757, guid: 7ec1115ec9a9eb24194083740cc7bb46,
+    type: 3}
+  m_PrefabInstance: {fileID: 408623805}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &486908500 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2,
@@ -676,7 +702,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: a0ef11cc138db114599a6928c45e1c10, type: 2}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -769,6 +795,12 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
+--- !u!1 &799868382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9014170783705847997, guid: 895f6f3c2d334633b5800312285058d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 335085697}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &821310684 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8424601471627627450, guid: 895f6f3c2d334633b5800312285058d2,
@@ -787,6 +819,7 @@ GameObject:
   - component: {fileID: 850075653}
   - component: {fileID: 850075652}
   - component: {fileID: 850075651}
+  - component: {fileID: 850075654}
   m_Layer: 6
   m_Name: Pong Ball
   m_TagString: Untagged
@@ -880,6 +913,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 850075649}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &850075654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850075649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0ebab8fda7e5ef4d89a01d7be325cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinXPosition: -5.13
+  MaxXPosition: 5.13
 --- !u!1 &886513840
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +1007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807cbbe151d33bf49a4fdf3885a2c85c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThisPlayersController: {fileID: 0}
+  thisPlayersController: {fileID: 0}
 --- !u!65 &924658995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1684,11 +1731,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1777674581}
     m_Modifications:
+    - target: {fileID: -7299610806960366738, guid: bba37d91f6a256d4bae28b14fa2d4677,
+        type: 3}
+      propertyPath: ThisPlayersController
+      value: 
+      objectReference: {fileID: 2008281992}
     - target: {fileID: 942362257327710925, guid: bba37d91f6a256d4bae28b14fa2d4677,
         type: 3}
       propertyPath: m_Name
-      value: PongPaddle (1)
+      value: PongPaddle Left
       objectReference: {fileID: 0}
+    - target: {fileID: 3890370346733254883, guid: bba37d91f6a256d4bae28b14fa2d4677,
+        type: 3}
+      propertyPath: maxDisplacement
+      value: 343.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890370346733254883, guid: bba37d91f6a256d4bae28b14fa2d4677,
+        type: 3}
+      propertyPath: playerControllerInstance
+      value: 
+      objectReference: {fileID: 3121457201503926533}
     - target: {fileID: 8222697400598421740, guid: bba37d91f6a256d4bae28b14fa2d4677,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1811,7 +1873,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680829874}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2083,6 +2145,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &2008281992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9014170785475729474, guid: 895f6f3c2d334633b5800312285058d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 335085697}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3121457201503926532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2091,6 +2159,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
+        type: 3}
+      propertyPath: Cylinder
+      value: 
+      objectReference: {fileID: 1756022428}
+    - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
+        type: 3}
+      propertyPath: cylinder
+      value: 
+      objectReference: {fileID: 1756022428}
+    - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
+        type: 3}
+      propertyPath: Flatscreen
+      value: 
+      objectReference: {fileID: 1384597930}
+    - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
+        type: 3}
+      propertyPath: flatscreen
+      value: 
+      objectReference: {fileID: 1384597930}
     - target: {fileID: 7955645690657308414, guid: 7ec1115ec9a9eb24194083740cc7bb46,
         type: 3}
       propertyPath: maxRange
@@ -2193,6 +2281,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ec1115ec9a9eb24194083740cc7bb46, type: 3}
+--- !u!1 &3121457201503926533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8754898407607026757, guid: 7ec1115ec9a9eb24194083740cc7bb46,
+    type: 3}
+  m_PrefabInstance: {fileID: 3121457201503926532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7007547775400962972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2201,11 +2295,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1777674581}
     m_Modifications:
+    - target: {fileID: -7299610806960366738, guid: bba37d91f6a256d4bae28b14fa2d4677,
+        type: 3}
+      propertyPath: ThisPlayersController
+      value: 
+      objectReference: {fileID: 799868382}
     - target: {fileID: 942362257327710925, guid: bba37d91f6a256d4bae28b14fa2d4677,
         type: 3}
       propertyPath: m_Name
-      value: PongPaddle
+      value: PongPaddle Right
       objectReference: {fileID: 0}
+    - target: {fileID: 3890370346733254883, guid: bba37d91f6a256d4bae28b14fa2d4677,
+        type: 3}
+      propertyPath: maxDisplacement
+      value: 298.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3890370346733254883, guid: bba37d91f6a256d4bae28b14fa2d4677,
+        type: 3}
+      propertyPath: playerControllerInstance
+      value: 
+      objectReference: {fileID: 408623806}
     - target: {fileID: 8222697400598421740, guid: bba37d91f6a256d4bae28b14fa2d4677,
         type: 3}
       propertyPath: m_LocalPosition.x

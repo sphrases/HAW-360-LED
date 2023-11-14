@@ -39,10 +39,15 @@ public class PaddleManager : MonoBehaviour
         _distance = heading.magnitude;
         var direction = heading / _distance; // This is now the normalized direction.
 
-        
+        // move pointer to paddleOrigin
         _pointerReference.transform.position = paddleOriginPos;
         _pointerReference.transform.rotation = Quaternion.LookRotation(direction);
-        Debug.DrawRay(transform.position, direction, Color.green);
+
+        // move _self to paddleOrigin
+        transform.position = paddleOriginPos;
+        transform.rotation =  paddleOrigin.rotation;
+        
+        // Debug.DrawRay(transform.position, direction, Color.green);
 
 
         SetMaterial(heading.sqrMagnitude < maxRange * maxRange); // should be done via events, i know...
@@ -52,13 +57,11 @@ public class PaddleManager : MonoBehaviour
     {
         if (active)
         {
-
             var newColor = activeMaterial.color;
             newColor.a = _distance;
 
             activeMaterial.SetColor("_green", newColor);
             _pointerReference.GetComponent<MeshRenderer>().material = activeMaterial;
-
         }
         else
         {

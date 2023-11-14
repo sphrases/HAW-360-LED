@@ -1,33 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerBodyController : MonoBehaviour
+namespace Pong_Game
 {
-    public GameObject Player;
-    public float MaxDisplacement = 100f;
-
-    Rigidbody2D rb;
-
-    private void Start()
+    public class PlayerBodyController : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody2D>();
-        transform.position = Player.transform.position;
-    }
-
-    private void Update()
-    {
-        Vector3 _displacement = Player.transform.position - transform.position;
-
-        if (_displacement.magnitude > MaxDisplacement)
+        
+        // THIS FILE IS OBSOLETE
+        private void Start()
         {
-            transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, transform.position.z);
-        }
-        else
-        {
-            Vector3 _velocity = _displacement / Time.fixedDeltaTime;
-            rb.velocity = _velocity;
         }
     }
 }
