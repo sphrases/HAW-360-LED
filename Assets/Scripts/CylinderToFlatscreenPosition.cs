@@ -25,14 +25,14 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
         var cylinderTransform = cylinder.transform; // this is more efficient then accessing the value repeatedly
         var cylinderTransformPosition = cylinderTransform.position; // this is more efficient then accessing the value repeatedly
 
-        var cylinderPositionWithoutY = new Vector3(cylinderTransformPosition.x, 0, cylinderTransformPosition.z);
-        var controllerPositionWithoutY = new Vector3(controllerPosition.x, 0, controllerPosition.z);
-        var rayDirection = cylinderPositionWithoutY - controllerPositionWithoutY;
+        var cylinderPositionWithoutY = new Vector3(cylinderTransformPosition.x, 0, cylinderTransformPosition.z); // Cyl pos without height
+        var controllerPositionWithoutY = new Vector3(controllerPosition.x, 0, controllerPosition.z); // controller pos without height
+        var rayDirection = cylinderPositionWithoutY - controllerPositionWithoutY; // get direction from controller to cyl
 
         RaycastHit hitInfo;
 
-        Physics.Raycast(controllerPositionWithoutY, rayDirection, out hitInfo);
-        var clampedYPosition = Mathf.Clamp(controllerPosition.y, cylinderTransformPosition.y - cylinderTransform.localScale.y, cylinderTransformPosition.y + cylinderTransform.localScale.y);
+        Physics.Raycast(controllerPositionWithoutY, rayDirection, out hitInfo); // shoot ray from controller to cyl
+        var clampedYPosition = Mathf.Clamp(controllerPosition.y, cylinderTransformPosition.y - cylinderTransform.localScale.y, cylinderTransformPosition.y + cylinderTransform.localScale.y); // limit height by height of cylinder
         var closestPosition = new Vector3(hitInfo.point.x, clampedYPosition, hitInfo.point.z);
         return closestPosition; // under the assumption that in the area of the controllers only the cylinder will have a collider
     }
