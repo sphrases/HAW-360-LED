@@ -18,20 +18,20 @@ namespace Pong_Game
 
         private void Update()
         {
-            var newPosition = _cylToFlatScreen.GetPlayerPosition();
-
+            var newPosition = _cylToFlatScreen.TransferCylinderPositionToFlatscreen(playerControllerInstance);
+            var currentPosition = transform.position;
             Debug.Log("newPosition");
             Debug.Log(newPosition);
 
 
             // transform.position = 
-            var newTransform = new Vector3(newPosition.x, newPosition.y, 0.01f);
+            var newTransform = new Vector3(newPosition.x, newPosition.y, currentPosition.z);
 
             Vector3 displacement = newTransform - transform.position;
 
 
             transform.position = newTransform;
-            
+
             if (displacement.magnitude > maxDisplacement)
             {
                 transform.position = newTransform;

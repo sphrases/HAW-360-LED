@@ -6,7 +6,7 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
     public GameObject cylinder;
     public GameObject flatscreen;
 
-    public Vector2 GetPlayerPosition()
+    /* public Vector2 GetPlayerPosition()
     {
         var localTransformPosition = transform.position;
 
@@ -14,11 +14,9 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
         Debug.Log(localTransformPosition);
 
         var closestPositionOnCylinderToController = GetClosestPositionOnCylinderToController(localTransformPosition);
-
-
-        var positionOnFlatscreen = TransferCylinderPositionToFlatscreen(closestPositionOnCylinderToController);
+        // var positionOnFlatscreen = TransferCylinderPositionToFlatscreen(closestPositionOnCylinderToController);
         return positionOnFlatscreen;
-    }
+    } */ 
 
     Vector3 GetClosestPositionOnCylinderToController(Vector3 controllerPosition)
     {
@@ -37,17 +35,18 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
         return closestPosition; // under the assumption that in the area of the controllers only the cylinder will have a collider
     }
 
-    Vector2 TransferCylinderPositionToFlatscreen(Vector3 closestPositionOnCylinderToController)
+    public Vector2 TransferCylinderPositionToFlatscreen(GameObject controllerGameObject)
     {
+        var controllerPosition = controllerGameObject.transform.position;
         var cylinderPosition = cylinder.transform.position;
-        var angle = Mathf.Rad2Deg * Mathf.Atan2((closestPositionOnCylinderToController.z - cylinderPosition.z), (closestPositionOnCylinderToController.x - cylinderPosition.x)); // this is for unitCircle, position.x and position.y need to be substracted in case center of cylinder is not at 0,0
+        var angle = 180 + Mathf.Rad2Deg * Mathf.Atan2((controllerPosition.z - cylinderPosition.z), (controllerPosition.x - cylinderPosition.x)); // this is for unitCircle, position.x and position.y need to be substracted in case center of cylinder is not at 0,0
 
         if (angle < 0)
         {
             angle += 360f;
         }
 
-        var normalizedY = closestPositionOnCylinderToController.y / (cylinder.transform.localScale.y * 2);
+        var normalizedY = controllerPosition.y / (cylinder.transform.localScale.y * 2);
         var flatscreenRectTransform = flatscreen.GetComponent<RectTransform>();
         var xOnFlatscreen = ((angle / 360) * flatscreenRectTransform.rect.width) - (flatscreenRectTransform.rect.width / 2); // x coordinate is basically a percentage of the screenWidth measured by percentage of angle to 360° (assumption that center of screen is 0,0)
         var yOnFlatscreen = (normalizedY * flatscreenRectTransform.rect.height) - (flatscreenRectTransform.rect.height / 2); // y coordinate is basically a percentage of screenHeight (assumption that center of screen is 0,0)
