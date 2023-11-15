@@ -12,6 +12,11 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
         return _positionOnFlatscreen;
     }
 
+    public float GetPlayerZRotation()
+    {
+        return transform.rotation.eulerAngles.z;
+    }
+
     Vector3 GetClosestPositionOnCylinderToController(Vector3 _controllerPosition)
     {
         Vector3 _cylinderPositionWithoutY = new Vector3(Cylinder.transform.position.x, 0, Cylinder.transform.position.z);
