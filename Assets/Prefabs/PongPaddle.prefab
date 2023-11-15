@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2589846851567250167}
   - component: {fileID: 2486901846255698722}
   - component: {fileID: 7434586315777340579}
-  - component: {fileID: 8104530917197958482}
+  - component: {fileID: 524708673358750793}
   m_Layer: 6
   m_Name: PongPaddle
   m_TagString: Untagged
@@ -93,7 +93,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3428116641193266283}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 83e1dda030037ef42b83717adb30dd58, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &8104530917197958482
+--- !u!114 &524708673358750793
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,8 +143,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3428116641193266283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4f0882448649c29129b62d8832cffd, type: 3}
+  m_Script: {fileID: 11500000, guid: 274706e76c3612e409e8dffe37be9f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerControllerInstance: {fileID: 0}
-  maxDisplacement: 100
+  Player: {fileID: 0}
+  MaxDisplacement: 100
