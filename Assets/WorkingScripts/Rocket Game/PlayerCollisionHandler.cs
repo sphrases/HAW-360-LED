@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float PlayerHitVisualizationTime = 2f;
+    public float PlayerHitBlinkTime = 0.4f;
+    public GameObject MeshObject;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        StopAllCoroutines();
+        StartCoroutine(PlayerHitVisualizationCoroutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator PlayerHitVisualizationCoroutine()
     {
-        
+        float _elapsedTime = 0f;
+
+        while(_elapsedTime < PlayerHitVisualizationTime)
+        {
+            MeshObject.SetActive(!MeshObject.activeSelf);
+            _elapsedTime += PlayerHitBlinkTime;
+            yield return new WaitForSeconds(PlayerHitBlinkTime);
+        }
+
+        MeshObject.SetActive(true);
     }
 }

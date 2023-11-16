@@ -12,9 +12,9 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
         return _positionOnFlatscreen;
     }
 
-    public float GetPlayerZRotation()
+    public Vector3 GetPlayerZRotationEuler()
     {
-        return transform.rotation.eulerAngles.z;
+        return transform.rotation.eulerAngles;
     }
 
     Vector3 GetClosestPositionOnCylinderToController(Vector3 _controllerPosition)
