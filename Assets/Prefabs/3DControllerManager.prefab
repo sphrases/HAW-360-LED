@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8709210306661737319}
-  - component: {fileID: 7955645690657308414}
   - component: {fileID: 6745052441881099103}
+  - component: {fileID: 7031494327186437757}
   m_Layer: 0
-  m_Name: PaddleControllerManager
+  m_Name: 3DControllerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,23 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7955645690657308414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754898407607026757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ea12697e180b6749ae59858879bf10a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paddleOrigin: {fileID: 0}
-  targetCylinder: {fileID: 0}
-  pointerPrefab: {fileID: 0}
-  activeMaterial: {fileID: 0}
-  maxRange: 0
 --- !u!114 &6745052441881099103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,3 +47,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cylinder: {fileID: 0}
   Flatscreen: {fileID: 0}
+  CorrespondingInGamePlayer: {fileID: 0}
+--- !u!114 &7031494327186437757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8754898407607026757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea12697e180b6749ae59858879bf10a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xRControllerOrigin: {fileID: 0}
+  targetCylinder: {fileID: 0}

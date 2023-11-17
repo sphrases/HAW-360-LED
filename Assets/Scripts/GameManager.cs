@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
-    public string DefaultActiveGame = "MeteoriteGame";
+    public enum Orientation
+    {
+        MeteoriteGame,
+        PongGame
+    }
+
+    public GameManager.Orientation DefaultActiveGame = Orientation.MeteoriteGame;
     public GameObject PongGame;
     public GameObject MeteoriteGame;
     public GameObject GameMenu;
@@ -47,12 +54,12 @@ public class GameManager : MonoBehaviour
         PongGame.SetActive(false);
         MeteoriteGame.SetActive(false);
 
-        switch(DefaultActiveGame)
+        switch (DefaultActiveGame)
         {
-            case "MeteoriteGame":
+            case Orientation.MeteoriteGame:
                 MeteoriteGame.SetActive(true);
                 break;
-            case "PongGame":
+            case Orientation.PongGame:
                 PongGame.SetActive(true);
                 break;
             default:
