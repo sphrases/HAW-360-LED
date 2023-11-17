@@ -4,6 +4,7 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
 {
     public GameObject Cylinder;
     public GameObject Flatscreen;
+    public FlatscreenPlayerTransformHandler CorrespondingInGamePlayer;
 
     public Vector2 GetPlayerPosition()
     {

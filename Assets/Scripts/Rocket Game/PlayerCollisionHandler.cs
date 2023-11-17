@@ -8,10 +8,19 @@ public class PlayerCollisionHandler : MonoBehaviour
     public float PlayerHitBlinkTime = 0.4f;
     public GameObject MeshObject;
 
+    private void Start()
+    {
+        GameManager.Instance.GameMenuActivated += ActivateMesh;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        StopAllCoroutines();
-        StartCoroutine(PlayerHitVisualizationCoroutine());
+        if(other.CompareTag("Meteorite"))
+        {
+            MeshObject.SetActive(true);
+            StopAllCoroutines();
+            StartCoroutine(PlayerHitVisualizationCoroutine());
+        }
     }
 
     IEnumerator PlayerHitVisualizationCoroutine()
@@ -26,5 +35,15 @@ public class PlayerCollisionHandler : MonoBehaviour
         }
 
         MeshObject.SetActive(true);
+    }
+
+    void ActivateMesh()
+    {
+        MeshObject.SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.GameMenuActivated -= ActivateMesh;
     }
 }

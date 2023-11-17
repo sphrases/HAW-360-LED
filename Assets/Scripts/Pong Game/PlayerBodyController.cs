@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerBodyController : MonoBehaviour
 {
-    public GameObject Player;
+    public GameObject PlayerInGamePosition;
     public float MaxPositionDisplacement = 100f;
     public float MaxRotationDisplacement = 90f;
 
@@ -14,7 +14,7 @@ public class PlayerBodyController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        transform.position = Player.transform.position;
+        transform.position = PlayerInGamePosition.transform.position;
     }
 
     private void Update()
@@ -25,11 +25,11 @@ public class PlayerBodyController : MonoBehaviour
 
     void MoveToPlayerPosition()
     {
-        Vector3 _displacement = Player.transform.position - transform.position;
+        Vector3 _displacement = PlayerInGamePosition.transform.position - transform.position;
 
         if (_displacement.magnitude > MaxPositionDisplacement) // teleport 
         {
-            transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, transform.position.z);
+            transform.position = new Vector3(PlayerInGamePosition.transform.position.x, PlayerInGamePosition.transform.position.y, transform.position.z);
         }
         else // move to playerposition using physics
         {
@@ -42,7 +42,7 @@ public class PlayerBodyController : MonoBehaviour
     {
         // if the displacement is too large the rotation should be changed instantly using the transform just like in MovePlayerPosition but it doesnt seem to work right
 
-        float _zAngleDifference = Player.transform.rotation.z - transform.rotation.z;
+        float _zAngleDifference = PlayerInGamePosition.transform.rotation.z - transform.rotation.z;
         float _angularVelocity = _zAngleDifference / Time.fixedDeltaTime;
         rb.angularVelocity = new Vector3(transform.rotation.x, transform.rotation.y, _angularVelocity);
     }
