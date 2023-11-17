@@ -821,7 +821,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1976,8 +1976,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 839f51c63ec0bcc45ad627e76c5abfd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-  PressedColor: {r: 0, g: 0, b: 0, a: 0}
+  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
+  PressedColor: {r: 0, g: 1, b: 0.16466069, a: 1}
+  NormalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!54 &1253284173
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2593,8 +2594,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 839f51c63ec0bcc45ad627e76c5abfd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-  PressedColor: {r: 0, g: 0, b: 0, a: 0}
+  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
+  PressedColor: {r: 0, g: 1, b: 0.16466069, a: 1}
+  NormalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!54 &1416241214
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3558,8 +3560,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 839f51c63ec0bcc45ad627e76c5abfd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
-  PressedColor: {r: 0, g: 0, b: 0, a: 0}
+  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
+  PressedColor: {r: 0, g: 1, b: 0.16466069, a: 1}
+  NormalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!54 &1969822192
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3626,7 +3629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2109221762
 RectTransform:
   m_ObjectHideFlags: 0
