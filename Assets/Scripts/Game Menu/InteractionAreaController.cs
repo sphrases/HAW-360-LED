@@ -5,7 +5,9 @@ using UnityEngine;
 public class InteractionAreaController : MonoBehaviour
 {
     public float ActivationTime = 3f;
-    public event System.Action<CylinderToFlatscreenPosition> Interaction;
+    public event System.Action<CylinderToFlatscreenPosition> InteractionCompleted;
+    public event System.Action<CylinderToFlatscreenPosition> InteractionStarted;
+    public event System.Action<CylinderToFlatscreenPosition> InteractionAborted;
 
     public static InteractionAreaController Instance;
 
@@ -18,7 +20,6 @@ public class InteractionAreaController : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,6 +27,7 @@ public class InteractionAreaController : MonoBehaviour
         if(other.CompareTag("GameController"))
         {
             CylinderToFlatscreenPosition _interactingPlayer = other.GetComponent<CylinderToFlatscreenPosition>();
+            InteractionStarted?.Invoke(_interactingPlayer);
             StartCoroutine(InteractionActivationCoroutine(_interactingPlayer));
         }
     }
@@ -35,6 +37,8 @@ public class InteractionAreaController : MonoBehaviour
         if (other.CompareTag("GameController"))
         {
             StopAllCoroutines();
+            CylinderToFlatscreenPosition _interactingPlayer = other.GetComponent<CylinderToFlatscreenPosition>();
+            InteractionAborted?.Invoke(_interactingPlayer);
         }
     }
 
@@ -48,6 +52,6 @@ public class InteractionAreaController : MonoBehaviour
             yield return null;
         }
 
-        Interaction.Invoke(_interactingPlayer);
+        InteractionCompleted?.Invoke(_interactingPlayer);
     }
 }

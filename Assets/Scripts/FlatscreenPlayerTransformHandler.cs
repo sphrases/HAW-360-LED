@@ -11,11 +11,16 @@ public class FlatscreenPlayerTransformHandler : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.GameMenuActivated += StopTransformUpdate;
-        SetPlayersControllerCorrespondingInGamePlayer();
+        if(!gameObject.CompareTag("Pointer"))
+        {
+            GameManager.Instance.GameMenuActivated += StopTransformUpdate;
+            GameManager.Instance.GameMenuDeactivated += StartTransformUpdate;
+        }
+
+        SetPlayerControllersCorrespondingInGamePlayer();
     }
 
-    public void SetPlayersControllerCorrespondingInGamePlayer()
+    public void SetPlayerControllersCorrespondingInGamePlayer()
     {
         if (ThisPlayersController != null)
         {
@@ -71,5 +76,16 @@ public class FlatscreenPlayerTransformHandler : MonoBehaviour
     void StopTransformUpdate()
     {
         updateTransform = false;
+    }
+
+    void StartTransformUpdate()
+    {
+        updateTransform = true;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.GameMenuDeactivated -= StartTransformUpdate;
+        GameManager.Instance.GameMenuActivated -= StopTransformUpdate;
     }
 }

@@ -12,11 +12,26 @@ public class MeteoriteSpawner : MonoBehaviour
     public float RandomSpawnInterval = 0.5f;
 
     RectTransform flatscreenRectTransform;
+    int amountOfSpawnedElements = 0;
+
+    private void Awake()
+    {
+        flatscreenRectTransform = GetComponentInParent<RectTransform>();
+    }
 
     private void Start()
     {
-        flatscreenRectTransform = GetComponentInParent<RectTransform>();
+        GameManager.Instance.GameMenuActivated += StopSpawning;
+        GameManager.Instance.GameMenuDeactivated += StartSpawning;
+    }
 
+    void OnEnable()
+    {
+        StartSpawning();
+    }
+
+    void StartSpawning()
+    {
         if (SpawnRandom)
         {
             StartCoroutine(RandomSpawnCoroutine());
@@ -29,15 +44,14 @@ public class MeteoriteSpawner : MonoBehaviour
 
     IEnumerator SpawnCoroutine()
     {
-        int _amountOfSpawnedElements = 0;
         float _elapsedTime = 0f;
 
-        while (_amountOfSpawnedElements < ThisSpawnInfo.SpawnInfoElements.Count)
+        while (amountOfSpawnedElements < ThisSpawnInfo.SpawnInfoElements.Count)
         {
-            if (_elapsedTime >= ThisSpawnInfo.SpawnInfoElements[_amountOfSpawnedElements].SpawnTime)
+            if (_elapsedTime >= ThisSpawnInfo.SpawnInfoElements[amountOfSpawnedElements].SpawnTime)
             {
-                SpawnMeteorite(_amountOfSpawnedElements);
-                _amountOfSpawnedElements++;
+                SpawnMeteorite(amountOfSpawnedElements);
+                amountOfSpawnedElements++;
             }
 
             _elapsedTime += Time.deltaTime;
@@ -71,15 +85,21 @@ public class MeteoriteSpawner : MonoBehaviour
     void SpawnMeteoriteRandomly()
     {
         GameObject _meteorite = Instantiate(MeteoritePrefab, transform.position, Random.rotation);
+        _meteorite.transform.parent = transform;
         Vector3 _initialPosition = MeteoritePrefab.transform.position;
         float _columnDistance = flatscreenRectTransform.rect.width / SpawnPositionAmount;
         int _spawnColumn = Random.Range(0, SpawnPositionAmount);
 
         float _newXPosition = _initialPosition.x + _columnDistance * _spawnColumn - (_columnDistance * SpawnPositionAmount / 2);
         float _newYPosition = _initialPosition.y + flatscreenRectTransform.rect.height / 2;
-        float _newZPosition = _initialPosition.z + transform.root.position.z;
+        float _newZPosition = _initialPosition.z; 
 
         Vector3 _newPosition = new Vector3(_newXPosition, _newYPosition, _newZPosition);
         _meteorite.transform.localPosition = _newPosition;
+    }
+
+    void StopSpawning()
+    {
+        StopAllCoroutines();
     }
 }

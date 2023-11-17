@@ -15,9 +15,16 @@ public class GameManager : MonoBehaviour
     public GameObject PongGame;
     public GameObject MeteoriteGame;
     public GameObject GameMenu;
+    public GameObject ButtonParent;
+    public GameMenuButtonHandler ChangeGameButton;
+    public GameMenuButtonHandler RestartButton;
+    public GameMenuButtonHandler ContinueButton;
     public FlatscreenPlayerTransformHandler Pointer;
+    public float MenuOffsetToPlayer = 1.5f;
+    public GameState ThisGameState;
 
     public event System.Action GameMenuActivated;
+    public event System.Action GameMenuDeactivated;
 
     public static GameManager Instance;
 
@@ -30,29 +37,38 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
     {
-        InteractionAreaController.Instance.Interaction += ActivateGameMenu;
+        InteractionAreaController.Instance.InteractionCompleted += ActivateGameMenu;
+        ContinueButton.ButtonActivated += DeactivateGameMenu;
         Initialize();
     }
 
     void ActivateGameMenu(CylinderToFlatscreenPosition _interactingPlayer)
     {
-        GameMenuActivated.Invoke();
-        Time.timeScale = 0;
+        ThisGameState.CurrentState = (int)GameState.States.Menu;
+        GameMenuActivated?.Invoke();
         GameMenu.SetActive(true);
-        GameMenu.transform.position = _interactingPlayer.CorrespondingInGamePlayer.transform.position;
-        Pointer.ThisPlayersController = _interactingPlayer; // tell the pointer which controller activated the menu and will therefore control the pointer
-        Pointer.SetPlayersControllerCorrespondingInGamePlayer();
+        ButtonParent.transform.position = new Vector3(_interactingPlayer.CorrespondingInGamePlayer.transform.position.x, _interactingPlayer.CorrespondingInGamePlayer.transform.position.y + MenuOffsetToPlayer, transform.position.z);
+        Pointer.ThisPlayersController = _interactingPlayer; // tell the gameObject which controller activated this and will therefore control the gameObject
+        Pointer.SetPlayerControllersCorrespondingInGamePlayer();
+    }
+
+    void DeactivateGameMenu()
+    {
+        GameMenuDeactivated.Invoke();
+        ThisGameState.CurrentState = (int)GameState.States.Playing;
+        GameMenu.SetActive(false);
     }
 
     void Initialize()
     {
         PongGame.SetActive(false);
         MeteoriteGame.SetActive(false);
+        GameMenu.SetActive(false);
+        ThisGameState.CurrentState = (int)GameState.States.Playing;
 
         switch (DefaultActiveGame)
         {
@@ -69,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        InteractionAreaController.Instance.Interaction -= ActivateGameMenu;
+        InteractionAreaController.Instance.InteractionCompleted -= ActivateGameMenu;
+        ContinueButton.ButtonActivated -= DeactivateGameMenu;
     }
 }
