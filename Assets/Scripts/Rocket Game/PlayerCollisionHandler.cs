@@ -8,19 +8,40 @@ public class PlayerCollisionHandler : MonoBehaviour
     public float PlayerHitBlinkTime = 0.4f;
     public GameObject MeshObject;
 
+    private PlayerPowerUpHandler powerUpHandler;
+
     private void Start()
     {
+        powerUpHandler = GetComponent<PlayerPowerUpHandler>();
         GameManager.Instance.GameMenuActivated += ActivateMesh;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Meteorite"))
+        Debug.Log("entered trigger");
+        CheckForMeteorite(other);
+    }
+
+    void CheckForMeteorite(Collider other)
+    {
+        MeteoriteController _meteoriteController = other.GetComponent<MeteoriteController>();
+
+        if (_meteoriteController == null)
         {
-            MeshObject.SetActive(true);
-            StopAllCoroutines();
-            StartCoroutine(PlayerHitVisualizationCoroutine());
+            return;
         }
+
+        if(powerUpHandler.CurrentPowerUp == PlayerPowerUpHandler.PowerUps.Shield)
+        {
+            Debug.Log("shield");
+            powerUpHandler.DeactivateShield();
+            return;
+        }
+
+        Debug.Log("no shield");
+        MeshObject.SetActive(true);
+        StopAllCoroutines();
+        StartCoroutine(PlayerHitVisualizationCoroutine());
     }
 
     IEnumerator PlayerHitVisualizationCoroutine()
