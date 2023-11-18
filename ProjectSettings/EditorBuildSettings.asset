@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Aiko's Scene.unity
+    path: Assets/Scenes/Main Scene.unity
     guid: 1639615654123f04090ca35a506d9c43
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5d193d875f8482343aea6b837dfd8146,

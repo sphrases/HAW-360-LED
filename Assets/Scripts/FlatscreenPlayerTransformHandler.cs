@@ -54,18 +54,18 @@ public class FlatscreenPlayerTransformHandler : MonoBehaviour
 
     void UpdatePosition()
     {
-        Vector2 _newPosition = ThisPlayersController.GetPlayerPosition();
+        Vector2 newPosition = ThisPlayersController.TransferCylinderPositionToFlatscreen();
 
         if (!UseXPosition)
         {
-            _newPosition.x = transform.localPosition.x;
+            newPosition.x = transform.position.x;
         }
         if (!UseYPosition)
         {
-            _newPosition.y = transform.localPosition.y;
+            newPosition.y = transform.position.y;
         }
 
-        transform.localPosition = new Vector3(_newPosition.x, _newPosition.y, 0.01f);
+        transform.position = new Vector3(newPosition.x, newPosition.y, 0.01f);
     }
 
     void UpdateRotation()

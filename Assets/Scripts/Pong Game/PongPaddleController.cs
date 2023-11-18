@@ -7,7 +7,6 @@ public class PongPaddleController : MonoBehaviour
 {
     public GameObject PlayerInGamePosition;
     public float MaxPositionDisplacement = 100f;
-    public float MaxRotationDisplacement = 90f;
 
     Rigidbody rb;
 
