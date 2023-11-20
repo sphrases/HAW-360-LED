@@ -17,9 +17,9 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
     private Vector2 oldScreenPosition = new Vector2(0, 0);
 
 
-    public Vector3 GetPlayerZRotationEuler()
+    public float GetPlayerZRotationEuler()
     {
-        return transform.rotation.eulerAngles;
+        return transform.rotation.eulerAngles.z;
     }
 
     public Vector2 TransferCylinderPositionToFlatscreen()
@@ -35,14 +35,14 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
                 {
                     Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                    Debug.Log("Did Hit");
+                    //Debug.Log("Did Hit");
 
                     closestPositionOnCylinderToController = hit.point;
                 }
                 else
                 {
                     Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-                    Debug.Log("Did not Hit");
+                    //Debug.Log("Did not Hit");
                     return oldScreenPosition;
                 }
 
@@ -68,7 +68,7 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
 
         float _normalizedY = closestPositionOnCylinderToController.y; //  / 2;
 
-        Debug.Log("" + Cylinder.transform.localScale.y + ", " + closestPositionOnCylinderToController.y + " ," + _normalizedY);
+        //Debug.Log("" + Cylinder.transform.localScale.y + ", " + closestPositionOnCylinderToController.y + " ," + _normalizedY);
 
 
         RectTransform _flatscreenRectTransform = CalculationCanvas.GetComponent<RectTransform>();

@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlatscreenPlayerTransformHandler : MonoBehaviour
 {
     public CylinderToFlatscreenPosition ThisPlayersController;
+
     public bool UseXPosition = true;
     public bool UseYPosition = true;
     public bool UseZRotation = true;
@@ -54,18 +55,18 @@ public class FlatscreenPlayerTransformHandler : MonoBehaviour
 
     void UpdatePosition()
     {
-        Vector2 newPosition = ThisPlayersController.TransferCylinderPositionToFlatscreen();
+        Vector2 _newPosition = ThisPlayersController.TransferCylinderPositionToFlatscreen();
 
         if (!UseXPosition)
         {
-            newPosition.x = transform.position.x;
+            _newPosition.x = transform.position.x;
         }
         if (!UseYPosition)
         {
-            newPosition.y = transform.position.y;
+            _newPosition.y = transform.position.y;
         }
 
-        transform.position = new Vector3(newPosition.x, newPosition.y, 0.01f);
+        transform.localPosition = new Vector3(_newPosition.x, _newPosition.y, 0.01f);
     }
 
     void UpdateRotation()
@@ -75,28 +76,28 @@ public class FlatscreenPlayerTransformHandler : MonoBehaviour
             return;
         }
 
-        Vector3 targetRotation = ThisPlayersController.GetPlayerZRotationEuler(); ;
+        float _targetZRotation = ThisPlayersController.GetPlayerZRotationEuler();
 
-        if (targetRotation.z > 180f)
+        if (_targetZRotation > 180f)
         {
-            while (targetRotation.z > 180f)
+            while (_targetZRotation > 180f)
             {
-                targetRotation.z -= 180f;
+                _targetZRotation -= 180f;
             }
 
-            targetRotation.z -= 180f;
+            _targetZRotation -= 180f;
         }
-        else if (targetRotation.z < -180f)
+        else if (_targetZRotation < -180f)
         {
-            while (targetRotation.z < -180f)
+            while (_targetZRotation < -180f)
             {
-                targetRotation.z += 180f;
+                _targetZRotation += 180f;
             }
 
-            targetRotation.z += 180f;
+            _targetZRotation += 180f;
         }
 
-        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, targetRotation.z);
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, _targetZRotation);
     }
 
     void StopTransformUpdate()

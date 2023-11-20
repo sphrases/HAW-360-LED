@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     void ActivateGameMenu(CylinderToFlatscreenPosition _interactingPlayer)
     {
+        Debug.Log("activating game menu");
         ThisGameState.CurrentState = (int)GameState.States.Menu;
         GameMenuActivated?.Invoke();
         GameMenu.SetActive(true);
@@ -67,7 +68,7 @@ public class GameManager : MonoBehaviour
     {
         PongGame.SetActive(false);
         MeteoriteGame.SetActive(false);
-        GameMenu.SetActive(false);
+        DeactivateGameMenu();
         ThisGameState.CurrentState = (int)GameState.States.Playing;
 
         switch (DefaultActiveGame)

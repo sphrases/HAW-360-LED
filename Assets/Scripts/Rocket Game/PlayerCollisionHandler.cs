@@ -18,7 +18,6 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("entered trigger");
         CheckForMeteorite(other);
     }
 
@@ -33,12 +32,10 @@ public class PlayerCollisionHandler : MonoBehaviour
 
         if(powerUpHandler.CurrentPowerUp == PlayerPowerUpHandler.PowerUps.Shield)
         {
-            Debug.Log("shield");
             powerUpHandler.DeactivateShield();
             return;
         }
 
-        Debug.Log("no shield");
         MeshObject.SetActive(true);
         StopAllCoroutines();
         StartCoroutine(PlayerHitVisualizationCoroutine());

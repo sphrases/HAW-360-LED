@@ -13,6 +13,7 @@ public class MeteoriteSpawner : MonoBehaviour
 
     RectTransform flatscreenRectTransform;
     int amountOfSpawnedElements = 0;
+    int previousSpawnColumn = 0;
 
     private void Awake()
     {
@@ -89,6 +90,13 @@ public class MeteoriteSpawner : MonoBehaviour
         Vector3 _initialPosition = MeteoritePrefab.transform.position;
         float _columnDistance = flatscreenRectTransform.rect.width / SpawnPositionAmount;
         int _spawnColumn = Random.Range(0, SpawnPositionAmount);
+
+        while(_spawnColumn == previousSpawnColumn)
+        {
+            _spawnColumn = Random.Range(0, SpawnPositionAmount);
+        }
+
+        previousSpawnColumn = _spawnColumn;
 
         float _newXPosition = _initialPosition.x + _columnDistance * _spawnColumn - (_columnDistance * SpawnPositionAmount / 2);
         float _newYPosition = _initialPosition.y + flatscreenRectTransform.rect.height / 2;
