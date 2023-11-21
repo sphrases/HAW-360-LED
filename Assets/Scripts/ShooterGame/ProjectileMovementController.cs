@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class ProjectileMovementController : MonoBehaviour
 {
     public float Speed = 5f;
     public float XPositionBounds = 9.6f;
