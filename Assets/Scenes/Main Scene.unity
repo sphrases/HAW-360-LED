@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a928200c92b58e41999d26162388174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultActiveGame: 0
+  DefaultActiveGame: 1
   PongGame: {fileID: 886513840}
   MeteoriteGame: {fileID: 723779771}
   GameMenu: {fileID: 934759876}
