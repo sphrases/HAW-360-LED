@@ -8,13 +8,15 @@ public class GameManager : MonoBehaviour
     public enum Orientation
     {
         MeteoriteGame,
-        PongGame
+        PongGame,
+        ShooterGame
     }
 
     public GameManager.Orientation DefaultActiveGame = Orientation.MeteoriteGame;
     public GameObject PongGame;
     public GameObject MeteoriteGame;
     public GameObject GameMenu;
+    public GameObject ShooterGame;
     public GameObject ButtonParent;
     public GameMenuButtonHandler ChangeGameButton;
     public GameMenuButtonHandler RestartButton;

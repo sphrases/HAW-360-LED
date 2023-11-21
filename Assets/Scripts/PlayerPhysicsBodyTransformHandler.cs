@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PongPaddleController : MonoBehaviour
+public class PlayerPhysicsBodyTransformHandler : MonoBehaviour
 {
     public GameObject PlayerInGamePosition;
     public float MaxPositionDisplacement = 100f;
