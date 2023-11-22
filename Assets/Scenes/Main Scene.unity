@@ -719,6 +719,12 @@ Transform:
   - {fileID: 763106707}
   m_Father: {fileID: 1184783958}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &85529261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7214178455145522479, guid: a25914b7b465832498011910ebc05684,
+    type: 3}
+  m_PrefabInstance: {fileID: 6020448294932406897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &95244656 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1362118353196176664, guid: a25914b7b465832498011910ebc05684,
@@ -2615,6 +2621,7 @@ MonoBehaviour:
   ShooterGame: {fileID: 935330292}
   JumpGame: {fileID: 1678011317}
   GameMenu: {fileID: 934759876}
+  GameSelectionMenu: {fileID: 85529261}
   ButtonParent: {fileID: 839383220}
   ChangeGameButton: {fileID: 791714157}
   RestartButton: {fileID: 533780943}
@@ -10713,15 +10720,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 940941321}
     m_Modifications:
-    - target: {fileID: 3677327533899354694, guid: a25914b7b465832498011910ebc05684,
+    - target: {fileID: 308994972444647332, guid: a25914b7b465832498011910ebc05684,
         type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3677327533899354694, guid: a25914b7b465832498011910ebc05684,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
+      propertyPath: m_Name
+      value: Quick Buttons
       objectReference: {fileID: 0}
     - target: {fileID: 5333387224030253751, guid: a25914b7b465832498011910ebc05684,
         type: 3}
@@ -10781,17 +10783,7 @@ PrefabInstance:
     - target: {fileID: 7623074689137862400, guid: a25914b7b465832498011910ebc05684,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127219787772640703, guid: a25914b7b465832498011910ebc05684,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127219787772640703, guid: a25914b7b465832498011910ebc05684,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

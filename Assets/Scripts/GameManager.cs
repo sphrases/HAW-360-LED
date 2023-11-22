@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject ShooterGame;
     public GameObject JumpGame;
     public GameObject GameMenu;
+    public GameObject GameSelectionMenu;
     public GameObject ButtonParent;
     public GameMenuButtonHandler ChangeGameButton;
     public GameMenuButtonHandler RestartButton;
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
     {
         InteractionAreaController.Instance.InteractionCompleted += ActivateGameMenu;
         ContinueButton.ButtonActivated += DeactivateGameMenu;
+        ChangeGameButton.ButtonActivated += ActivateGameSelectionMenu;
         Initialize();
     }
 
@@ -67,6 +69,16 @@ public class GameManager : MonoBehaviour
         GameMenu.SetActive(false);
     }
 
+    void ActivateGameSelectionMenu()
+    {
+        GameSelectionMenu.SetActive(true);
+    }
+
+    void DeactivateGameSelectionMenu()
+    {
+        GameSelectionMenu.SetActive(false);
+    }
+
     void Initialize()
     {
         PongGame.SetActive(false);
@@ -74,6 +86,7 @@ public class GameManager : MonoBehaviour
         JumpGame.SetActive(false);
         ShooterGame.SetActive(false);
         DeactivateGameMenu();
+        DeactivateGameSelectionMenu();
         ThisGameState.CurrentState = (int)GameState.States.Playing;
 
         switch (DefaultActiveGame)
@@ -99,5 +112,6 @@ public class GameManager : MonoBehaviour
     {
         InteractionAreaController.Instance.InteractionCompleted -= ActivateGameMenu;
         ContinueButton.ButtonActivated -= DeactivateGameMenu;
+        ChangeGameButton.ButtonActivated -= ActivateGameSelectionMenu;
     }
 }
