@@ -8,6 +8,9 @@ TagManager:
   - Interaction Area
   - Meteorite
   - Pointer
+  - Map
+  - Platform
+  - Spikes
   layers:
   - Default
   - TransparentFX

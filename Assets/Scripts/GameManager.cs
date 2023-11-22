@@ -9,14 +9,16 @@ public class GameManager : MonoBehaviour
     {
         MeteoriteGame,
         PongGame,
-        ShooterGame
+        ShooterGame,
+        JumpGame
     }
 
     public GameManager.Orientation DefaultActiveGame = Orientation.MeteoriteGame;
     public GameObject PongGame;
     public GameObject MeteoriteGame;
-    public GameObject GameMenu;
     public GameObject ShooterGame;
+    public GameObject JumpGame;
+    public GameObject GameMenu;
     public GameObject ButtonParent;
     public GameMenuButtonHandler ChangeGameButton;
     public GameMenuButtonHandler RestartButton;
@@ -50,7 +52,6 @@ public class GameManager : MonoBehaviour
 
     void ActivateGameMenu(CylinderToFlatscreenPosition _interactingPlayer)
     {
-        Debug.Log("activating game menu");
         ThisGameState.CurrentState = (int)GameState.States.Menu;
         GameMenuActivated?.Invoke();
         GameMenu.SetActive(true);
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     void DeactivateGameMenu()
     {
-        GameMenuDeactivated.Invoke();
+        GameMenuDeactivated?.Invoke();
         ThisGameState.CurrentState = (int)GameState.States.Playing;
         GameMenu.SetActive(false);
     }
@@ -70,6 +71,8 @@ public class GameManager : MonoBehaviour
     {
         PongGame.SetActive(false);
         MeteoriteGame.SetActive(false);
+        JumpGame.SetActive(false);
+        ShooterGame.SetActive(false);
         DeactivateGameMenu();
         ThisGameState.CurrentState = (int)GameState.States.Playing;
 
@@ -80,6 +83,12 @@ public class GameManager : MonoBehaviour
                 break;
             case Orientation.PongGame:
                 PongGame.SetActive(true);
+                break;
+            case Orientation.ShooterGame:
+                ShooterGame.SetActive(true);
+                break;
+            case Orientation.JumpGame:
+                JumpGame.SetActive(true);
                 break;
             default:
                 break;

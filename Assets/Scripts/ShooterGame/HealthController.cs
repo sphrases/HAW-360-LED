@@ -13,8 +13,18 @@ public class HealthController : MonoBehaviour
             return health; 
         } 
         set 
-        {  
+        {
             health = value; 
+
+            if(health <= 0f)
+            {
+                Die();
+            }
         } 
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }
