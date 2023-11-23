@@ -5,28 +5,36 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum Orientation
+    public enum Games
     {
-        MeteoriteGame,
+        RocketGame,
         PongGame,
         ShooterGame,
         JumpGame
     }
 
-    public GameManager.Orientation DefaultActiveGame = Orientation.MeteoriteGame;
+    public enum States
+    {
+        Playing,
+        Menu,
+        GameSelectionMenu
+    }
+
+    public GameManager.Games ActiveGame = Games.RocketGame;
     public GameObject PongGame;
     public GameObject MeteoriteGame;
     public GameObject ShooterGame;
     public GameObject JumpGame;
     public GameObject GameMenu;
-    public GameObject GameSelectionMenu;
     public GameObject ButtonParent;
     public GameMenuButtonHandler ChangeGameButton;
     public GameMenuButtonHandler RestartButton;
     public GameMenuButtonHandler ContinueButton;
-    public FlatscreenPlayerTransformHandler Pointer;
+    public GameSelectionMenuController GameSelectionMenu;
+    public FlatscreenPlayerTransformHandler GameMenuPointer;
+    public FlatscreenPlayerTransformHandler SelectionMenuPointer;
     public float MenuOffsetToPlayer = 1.5f;
-    public GameState ThisGameState;
+    public States CurrentState;
 
     public event System.Action GameMenuActivated;
     public event System.Action GameMenuDeactivated;
@@ -49,37 +57,56 @@ public class GameManager : MonoBehaviour
         InteractionAreaController.Instance.InteractionCompleted += ActivateGameMenu;
         ContinueButton.ButtonActivated += DeactivateGameMenu;
         ChangeGameButton.ButtonActivated += ActivateGameSelectionMenu;
-        Initialize();
+        GameSelectionMenu.StartGame += StartGame;
+        InitializeGame();
     }
 
     void ActivateGameMenu(CylinderToFlatscreenPosition _interactingPlayer)
     {
-        ThisGameState.CurrentState = (int)GameState.States.Menu;
+        CurrentState = States.Menu;
         GameMenuActivated?.Invoke();
         GameMenu.SetActive(true);
         ButtonParent.transform.position = new Vector3(_interactingPlayer.CorrespondingInGamePlayer.transform.position.x, _interactingPlayer.CorrespondingInGamePlayer.transform.position.y + MenuOffsetToPlayer, transform.position.z);
-        Pointer.ThisPlayersController = _interactingPlayer; // tell the gameObject which controller activated this and will therefore control the gameObject
-        Pointer.SetPlayerControllersCorrespondingInGamePlayer();
+        GameMenuPointer.ThisPlayersController = _interactingPlayer; // tell the gameObject which controller activated this and will therefore control the gameObject
+        GameMenuPointer.SetPlayerControllersCorrespondingInGamePlayer();
     }
 
     void DeactivateGameMenu()
     {
         GameMenuDeactivated?.Invoke();
-        ThisGameState.CurrentState = (int)GameState.States.Playing;
         GameMenu.SetActive(false);
+        CurrentState = States.Playing;
     }
 
     void ActivateGameSelectionMenu()
     {
-        GameSelectionMenu.SetActive(true);
+        DeactivateGameMenu();
+        CurrentState = States.GameSelectionMenu;
+        PongGame.SetActive(false);
+        MeteoriteGame.SetActive(false);
+        JumpGame.SetActive(false);
+        ShooterGame.SetActive(false);
+        GameSelectionMenu.gameObject.SetActive(true);
+        SelectionMenuPointer.ThisPlayersController = GameMenuPointer.ThisPlayersController;
+        SelectionMenuPointer.SetPlayerControllersCorrespondingInGamePlayer();
     }
 
     void DeactivateGameSelectionMenu()
     {
-        GameSelectionMenu.SetActive(false);
+        GameSelectionMenu.gameObject.SetActive(false);
+        CurrentState = States.Playing;
     }
 
-    void Initialize()
+    void StartGame(Games _game)
+    {
+        ActiveGame = _game;
+        DeactivateGameSelectionMenu();
+        DeactivateGameMenu();
+        InitializeGame();
+        CurrentState = States.Playing;
+    }
+
+    void InitializeGame()
     {
         PongGame.SetActive(false);
         MeteoriteGame.SetActive(false);
@@ -87,20 +114,20 @@ public class GameManager : MonoBehaviour
         ShooterGame.SetActive(false);
         DeactivateGameMenu();
         DeactivateGameSelectionMenu();
-        ThisGameState.CurrentState = (int)GameState.States.Playing;
+        CurrentState = States.Playing;
 
-        switch (DefaultActiveGame)
+        switch (ActiveGame)
         {
-            case Orientation.MeteoriteGame:
+            case Games.RocketGame:
                 MeteoriteGame.SetActive(true);
                 break;
-            case Orientation.PongGame:
+            case Games.PongGame:
                 PongGame.SetActive(true);
                 break;
-            case Orientation.ShooterGame:
+            case Games.ShooterGame:
                 ShooterGame.SetActive(true);
                 break;
-            case Orientation.JumpGame:
+            case Games.JumpGame:
                 JumpGame.SetActive(true);
                 break;
             default:

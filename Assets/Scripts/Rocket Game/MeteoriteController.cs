@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeteoriteController : MonoBehaviour
 {
     public float YMoveSpeed = -200f;
+    public float LifeTime = 20f;
 
     bool updateTransform = true;
 
@@ -12,6 +13,16 @@ public class MeteoriteController : MonoBehaviour
     {
         GameManager.Instance.GameMenuActivated += StopTransformUpdate;
         GameManager.Instance.GameMenuDeactivated += StartTransformUpdate;
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(LifetimeCountdown());
+    }
+
+    private void OnDisable()
+    {
+        Destroy(gameObject);
     }
 
     private void Update()
@@ -23,6 +34,23 @@ public class MeteoriteController : MonoBehaviour
 
         float newYCoordinate = transform.position.y + YMoveSpeed * Time.deltaTime;
         transform.position = new Vector3(transform.position.x, newYCoordinate, transform.position.z);
+    }
+
+    IEnumerator LifetimeCountdown()
+    {
+        float _elapsedTime = 0f;
+
+        while(_elapsedTime < LifeTime)
+        {
+            if(updateTransform)
+            {
+                _elapsedTime += Time.deltaTime;
+            }
+
+            yield return null;
+        }
+
+        Destroy(gameObject);
     }
 
     void StopTransformUpdate()

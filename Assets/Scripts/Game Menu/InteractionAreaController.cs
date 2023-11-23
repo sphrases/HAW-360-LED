@@ -6,7 +6,7 @@ public class InteractionAreaController : MonoBehaviour
 {
     public float ActivationTime = 3f;
     public event System.Action<CylinderToFlatscreenPosition> InteractionCompleted;
-    public event System.Action<CylinderToFlatscreenPosition> InteractionStarted;
+    public event System.Action<CylinderToFlatscreenPosition, float> InteractionStarted;
     public event System.Action<CylinderToFlatscreenPosition> InteractionAborted;
 
     public static InteractionAreaController Instance;
@@ -24,10 +24,15 @@ public class InteractionAreaController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(GameManager.Instance.CurrentState != GameManager.States.Playing)
+        {
+            return;
+        }
+
         if(other.CompareTag("GameController"))
         {
             CylinderToFlatscreenPosition _interactingPlayer = other.GetComponent<CylinderToFlatscreenPosition>();
-            InteractionStarted?.Invoke(_interactingPlayer);
+            InteractionStarted?.Invoke(_interactingPlayer, ActivationTime);
             StartCoroutine(InteractionActivationCoroutine(_interactingPlayer));
         }
     }
