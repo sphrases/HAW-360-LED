@@ -6,6 +6,7 @@ public class PlatformPlayerController : MonoBehaviour
 {
     public GameObject PlatformPrefab;
     public Transform PlatformSpawnPosition;
+    public Transform PlatformParent;
     public int AvailablePlatforms = 5;
 
     private PrimaryButtonWatcher watcher;
@@ -40,7 +41,8 @@ public class PlatformPlayerController : MonoBehaviour
             return;
         }
 
-        Instantiate(PlatformPrefab, PlatformSpawnPosition.position, Quaternion.identity);
+        GameObject _platform = Instantiate(PlatformPrefab, PlatformSpawnPosition.position, Quaternion.identity);
+        _platform.transform.SetParent(PlatformParent);
         AvailablePlatforms--;
     }
 

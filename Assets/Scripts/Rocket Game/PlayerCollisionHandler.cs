@@ -18,19 +18,51 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        CheckForMeteorite(other);
+        bool _wasMeteorite = CheckForMeteorite(other);
+        
+        if(_wasMeteorite)
+        {
+            return;
+        }
+
+        CheckForEnemyShip(other);
     }
 
-    void CheckForMeteorite(Collider other)
+    bool CheckForMeteorite(Collider other)
     {
         MeteoriteController _meteoriteController = other.GetComponent<MeteoriteController>();
 
         if (_meteoriteController == null)
         {
+            return false;
+        }
+
+        _meteoriteController.DestroyGameObject();
+
+        if(powerUpHandler.CurrentPowerUp == PlayerPowerUpHandler.PowerUps.Shield)
+        {
+            powerUpHandler.DeactivateShield();
+            return true;
+        }
+
+        MeshObject.SetActive(true);
+        StopAllCoroutines();
+        StartCoroutine(PlayerHitVisualizationCoroutine());
+        return true;
+    }
+
+    void CheckForEnemyShip(Collider other)
+    {
+        EnemyShipController _enemyShipController = other.GetComponent<EnemyShipController>();
+
+        if (_enemyShipController == null)
+        {
             return;
         }
 
-        if(powerUpHandler.CurrentPowerUp == PlayerPowerUpHandler.PowerUps.Shield)
+        _enemyShipController.DestroyGameObject();
+
+        if (powerUpHandler.CurrentPowerUp == PlayerPowerUpHandler.PowerUps.Shield)
         {
             powerUpHandler.DeactivateShield();
             return;

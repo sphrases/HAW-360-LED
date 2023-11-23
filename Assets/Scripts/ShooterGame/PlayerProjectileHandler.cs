@@ -63,6 +63,7 @@ public class PlayerProjectileHandler : MonoBehaviour
                 break;
             case PickupObject.PickupType.Rocket:
                 GameObject _rocket = Instantiate(Rocket, ProjectileSpawnPosition.position, transform.rotation);
+                _rocket.transform.Rotate(0f, 90f, 0f);
                 _rocket.GetComponent<RocketMovementController>().SetDestination(gameObject);
                 currentProjectileAmount--;
                 break;

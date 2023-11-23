@@ -68,4 +68,9 @@ public class MeteoriteController : MonoBehaviour
         GameManager.Instance.GameMenuActivated -= StopTransformUpdate;
         GameManager.Instance.GameMenuDeactivated -= StartTransformUpdate;
     }
+
+    public void DestroyGameObject()
+    {
+        Destroy(gameObject);
+    }
 }

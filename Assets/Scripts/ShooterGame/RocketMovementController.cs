@@ -9,7 +9,6 @@ public class RocketMovementController : MonoBehaviour
     public float Speed = 5f;
     public float XPositionBounds = 9.6f;
 
-    private Vector3 destination;
     private NavMeshAgent agent;
     private Rigidbody rb;
 
@@ -32,25 +31,28 @@ public class RocketMovementController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         HealthController[] _healthControllers = FindObjectsOfType<HealthController>();
-        bool _foundOtherPlayer = false;
 
         for (int i = 0; i < _healthControllers.Length; i++)
         {
             if (_healthControllers[i].gameObject != _commandingPlayer)
             {
-                destination = _healthControllers[i].transform.position;
-                _foundOtherPlayer = true;
-                break;
+                GameObject _otherPlayer = _healthControllers[i].gameObject;
+                StartCoroutine(FollowOtherPlayerCoroutine(_otherPlayer));
+                return;
             }
         }
 
-        if(!_foundOtherPlayer)
-        {
-            MoveForward();
-            return;
-        }
+        MoveForward();
+    }
 
-        agent.SetDestination(destination);
+    IEnumerator FollowOtherPlayerCoroutine(GameObject _otherPlayer)
+    {
+        while (true)
+        {
+            Vector3 _destination = _otherPlayer.transform.position;
+            agent.SetDestination(_destination);
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     private IEnumerator LifetimeCountdown()
@@ -73,10 +75,5 @@ public class RocketMovementController : MonoBehaviour
         {
             transform.position = new Vector3(-XPositionBounds, transform.position.y, transform.position.z);
         }
-    }
-
-    public void DestroyGameObject()
-    {
-        Destroy(gameObject);
     }
 }
