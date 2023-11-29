@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406dc96d3582cae40a03e78631084c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TrackingMode: 0
   Cylinder: {fileID: 0}
   CalculationCanvas: {fileID: 0}
   CorrespondingInGamePlayer: {fileID: 0}
@@ -97,6 +98,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Capsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 932273553225840377, guid: ef1f99162d8584341b5c81cce98e6041,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1043883063906672681, guid: ef1f99162d8584341b5c81cce98e6041,
         type: 3}
