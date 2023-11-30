@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
         RocketGame,
         PongGame,
         ShooterGame,
-        JumpGame
+        JumpGame,
+        BounceGame,
+        SidescrollerGame
     }
 
     public enum States
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour
     public GameObject MeteoriteGame;
     public GameObject ShooterGame;
     public GameObject JumpGame;
+    public GameObject BounceGame;
+    public GameObject SidescrollerGame;
     public GameObject GameMenu;
     public GameObject ButtonParent;
     public GameMenuButtonHandler ChangeGameButton;
@@ -61,6 +65,16 @@ public class GameManager : MonoBehaviour
         InitializeGame();
     }
 
+    void DeactivateAllGames()
+    {
+        PongGame.SetActive(false);
+        MeteoriteGame.SetActive(false);
+        JumpGame.SetActive(false);
+        ShooterGame.SetActive(false);
+        BounceGame.SetActive(false);
+        SidescrollerGame.SetActive(false);
+    }
+
     void ActivateGameMenu(CylinderToFlatscreenPosition _interactingPlayer)
     {
         CurrentState = States.Menu;
@@ -82,10 +96,7 @@ public class GameManager : MonoBehaviour
     {
         DeactivateGameMenu();
         CurrentState = States.GameSelectionMenu;
-        PongGame.SetActive(false);
-        MeteoriteGame.SetActive(false);
-        JumpGame.SetActive(false);
-        ShooterGame.SetActive(false);
+        DeactivateAllGames();
         GameSelectionMenu.gameObject.SetActive(true);
         SelectionMenuPointer.ThisPlayersController = GameMenuPointer.ThisPlayersController;
         SelectionMenuPointer.SetPlayerControllersCorrespondingInGamePlayer();
@@ -108,10 +119,7 @@ public class GameManager : MonoBehaviour
 
     void InitializeGame()
     {
-        PongGame.SetActive(false);
-        MeteoriteGame.SetActive(false);
-        JumpGame.SetActive(false);
-        ShooterGame.SetActive(false);
+        DeactivateAllGames();
         DeactivateGameMenu();
         DeactivateGameSelectionMenu();
         CurrentState = States.Playing;
@@ -129,6 +137,12 @@ public class GameManager : MonoBehaviour
                 break;
             case Games.JumpGame:
                 JumpGame.SetActive(true);
+                break;
+            case Games.BounceGame:
+                BounceGame.SetActive(true);
+                break;
+            case Games.SidescrollerGame:
+                SidescrollerGame.SetActive(true);
                 break;
             default:
                 break;
