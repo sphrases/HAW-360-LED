@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
         ShooterGame,
         JumpGame,
         BounceGame,
-        SidescrollerGame
+        SidescrollerGame,
+        DonkeyKongGame
     }
 
     public enum States
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     public GameObject JumpGame;
     public GameObject BounceGame;
     public GameObject SidescrollerGame;
+    public GameObject DonkeyKongGame;
     public GameObject GameMenu;
     public GameObject ButtonParent;
     public GameMenuButtonHandler ChangeGameButton;
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
         ShooterGame.SetActive(false);
         BounceGame.SetActive(false);
         SidescrollerGame.SetActive(false);
+        DonkeyKongGame.SetActive(false);
     }
 
     void ActivateGameMenu(CylinderToFlatscreenPosition _interactingPlayer)
@@ -143,6 +146,9 @@ public class GameManager : MonoBehaviour
                 break;
             case Games.SidescrollerGame:
                 SidescrollerGame.SetActive(true);
+                break;
+            case Games.DonkeyKongGame:
+                DonkeyKongGame.SetActive(true);
                 break;
             default:
                 break;

@@ -38,7 +38,18 @@ public class PlayerPhysicsBodyTransformHandler : MonoBehaviour
 
         if (_displacement.magnitude > MaxPositionDisplacement) // teleport 
         {
-            transform.position = new Vector3(PlayerInGamePosition.transform.position.x, PlayerInGamePosition.transform.position.y, transform.position.z);
+            if(UseYPosition && UseXPosition)
+            {
+                transform.position = new Vector3(PlayerInGamePosition.transform.position.x, PlayerInGamePosition.transform.position.y, transform.position.z);
+            }
+            else if(!UseYPosition)
+            {
+                transform.position = new Vector3(PlayerInGamePosition.transform.position.x, transform.position.y, transform.position.z);
+            }
+            else if(! UseXPosition) 
+            {
+                transform.position = new Vector3(transform.position.x, PlayerInGamePosition.transform.position.y, transform.position.z);
+            }
         }
         else // move to playerposition using physics
         {
