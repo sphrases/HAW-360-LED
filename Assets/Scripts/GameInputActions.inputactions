@@ -1,0 +1,34 @@
+{
+    "name": "GameInputActions",
+    "maps": [
+        {
+            "name": "ControllerInputLeft",
+            "id": "433d77c0-914f-42d5-b4f0-2a5ad4847534",
+            "actions": [
+                {
+                    "name": "TriggerButtonDown",
+                    "type": "Value",
+                    "id": "c88f4ded-ea1b-4f08-ac46-0569cfd10d0d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4abc9e24-d0e3-4c4e-9c4c-282b2833e935",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerButtonDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

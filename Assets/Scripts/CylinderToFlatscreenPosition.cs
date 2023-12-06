@@ -65,15 +65,18 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
             _angle += 360f;
         }
 
+        float _anglePercentage = _angle;
 
-        float _normalizedY = closestPositionOnCylinderToController.y; //  / 2;
-
-        //Debug.Log("" + Cylinder.transform.localScale.y + ", " + closestPositionOnCylinderToController.y + " ," + _normalizedY);
+        float _yPercentage = (closestPositionOnCylinderToController.y / 2);
 
 
         RectTransform _flatscreenRectTransform = CalculationCanvas.GetComponent<RectTransform>();
-        float _xOnFlatscreen = ((_angle / 360) * _flatscreenRectTransform.rect.width) - (_flatscreenRectTransform.rect.width / 2); // x coordinate is basically a percentage of the screenWidth measured by percentage of angle to 360� (assumption that center of screen is 0,0)
-        float _yOnFlatscreen = (_normalizedY * _flatscreenRectTransform.rect.height) - (_flatscreenRectTransform.rect.height / 2); // y coordinate is basically a percentage of screenHeight (assumption that center of screen is 0,0)
+        float _xOnFlatscreen = ((_anglePercentage / 360) * _flatscreenRectTransform.rect.width) - (_flatscreenRectTransform.rect.width / 2); // x coordinate is basically a percentage of the screenWidth measured by percentage of angle to 360� (assumption that center of screen is 0,0)
+        float _yOnFlatscreen = (_yPercentage * _flatscreenRectTransform.rect.height) - (_flatscreenRectTransform.rect.height / 2); // y coordinate is basically a percentage of screenHeight (assumption that center of screen is 0,0)
+
+
+        // Debug.Log("y percentage:  " + _yPercentage + "; Flatscreen Height:  " + _flatscreenRectTransform.rect.height + "; Y On Flatscreen:  " + _yOnFlatscreen);
+
 
 
         Vector2 newScreenPos = new Vector2(_xOnFlatscreen, _yOnFlatscreen);
