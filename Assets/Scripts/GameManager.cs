@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     }
 
     public GameManager.Games ActiveGame = Games.RocketGame;
-    public GameObject PongGame;
+    // public GameObject PongGame;
     public GameObject MeteoriteGame;
     public GameObject ShooterGame;
     public GameObject JumpGame;
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     void DeactivateAllGames()
     {
-        PongGame.SetActive(false);
+        // PongGame.SetActive(false);
         MeteoriteGame.SetActive(false);
         JumpGame.SetActive(false);
         ShooterGame.SetActive(false);
@@ -135,9 +135,7 @@ public class GameManager : MonoBehaviour
             case Games.RocketGame:
                 MeteoriteGame.SetActive(true);
                 break;
-            case Games.PongGame:
-                PongGame.SetActive(true);
-                break;
+        
             case Games.ShooterGame:
                 ShooterGame.SetActive(true);
                 break;
