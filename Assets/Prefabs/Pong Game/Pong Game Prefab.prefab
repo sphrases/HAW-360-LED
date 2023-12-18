@@ -293,7 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameTitle: Pong Game
   gameDescription: Pong Description
-  gameTitleCard: {fileID: 638800150460204107, guid: d798fa129f1cbce409f232d830fe9aa6,
+  gameTitleCard: {fileID: 8758384909356531815, guid: d798fa129f1cbce409f232d830fe9aa6,
     type: 3}
   gameCurrentlyRunning: 0
 --- !u!1 &5371853280600764402

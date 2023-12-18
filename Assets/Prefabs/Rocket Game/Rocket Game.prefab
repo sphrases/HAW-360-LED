@@ -364,7 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameTitle: Rocket Game
   gameDescription: Rocket Game Description
-  gameTitleCard: {fileID: 638800150460204107, guid: dd0639ac1b2a1b04ab158fa84f0738e2,
+  gameTitleCard: {fileID: 4334702678207895378, guid: dd0639ac1b2a1b04ab158fa84f0738e2,
     type: 3}
   gameCurrentlyRunning: 0
 --- !u!1 &7349837964004614385
