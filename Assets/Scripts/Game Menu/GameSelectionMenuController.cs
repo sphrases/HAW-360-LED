@@ -24,8 +24,13 @@ public class GameSelectionMenuController : MonoBehaviour
     private float _offsetYAxisPadding = 2.5f;
     private float _offsetYAxisElementHeight = 1;
 
+
+
+
+
     void Awake()
     {
+        // Initialize pre-render
 
         _canvasHeightNormalized = CalculationCanvas.rect.height / 2;
         _canvasWidthNormalized = CalculationCanvas.rect.width / 2;
@@ -41,30 +46,6 @@ public class GameSelectionMenuController : MonoBehaviour
             offsetYAxis += _offsetYAxisPadding;
         }
 
-
-        // PlayPongGameButton.ButtonActivated += PlayPongGame;
-        // PlayRocketGameButton.ButtonActivated += PlayRocketGame;
-        // PlayShooterGameButton.ButtonActivated += PlayShooterGame;
-        // PlayJumpGameButton.ButtonActivated += PlayJumpGame;
     }
 
-    // void PlayPongGame()
-    // {
-    //     StartGame?.Invoke(GameManager.Games.PongGame);
-    // }
-    // 
-    // void PlayShooterGame()
-    // {
-    //     StartGame?.Invoke(GameManager.Games.ShooterGame);
-    // }
-    // 
-    // void PlayRocketGame()
-    // {
-    //     StartGame?.Invoke(GameManager.Games.RocketGame);
-    // }
-    // 
-    // void PlayJumpGame()
-    // {
-    //     StartGame?.Invoke(GameManager.Games.JumpGame);
-    // }
 }
