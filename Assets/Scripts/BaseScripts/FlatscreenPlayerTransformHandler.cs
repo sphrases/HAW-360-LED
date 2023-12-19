@@ -115,4 +115,9 @@ public class FlatscreenPlayerTransformHandler : MonoBehaviour
         GameManager.Instance.GameMenuDeactivated -= StartTransformUpdate;
         GameManager.Instance.GameMenuActivated -= StopTransformUpdate;
     }
+
+    public void SetPlayersController(CylinderToFlatscreenPosition newPlayerController) {
+        ThisPlayersController = newPlayerController;
+    }
+
 }

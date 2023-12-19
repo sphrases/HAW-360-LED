@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,12 @@ public class GameSelectionMenuController : MonoBehaviour
 {
     public RectTransform CalculationCanvas;
     public List<GameObject> gameTitleCards; // This needs to be GameObject as type, but the gameobjects must have a child "GameTitleCard" instance
+    public GameObject GameGroupParent;
+    public GameObject MenuGroupParent;
+    public GameObject Pointer;
+    public int startGameIndex = 0;
+
+
 
     private float _canvasHeightNormalized;
     private float _offsetYAxisPadding = 2.5f;
@@ -15,7 +22,7 @@ public class GameSelectionMenuController : MonoBehaviour
 
 
 
-    void Awake()
+    private void Awake()
     {
         // Initialize pre-render
         _canvasHeightNormalized = CalculationCanvas.rect.height / 2;
@@ -24,13 +31,27 @@ public class GameSelectionMenuController : MonoBehaviour
 
         foreach (GameObject gTitle in gameTitleCards)
         {
-            Transform positionOffset = this.transform;
-            positionOffset.position = new Vector3(this.transform.position.x, _canvasHeightNormalized - _offsetYAxis - _offsetYAxisElementHeight, this.transform.position.z);
-            // Debug.Log(positionOffset.position);
-            Instantiate(gTitle, positionOffset.position, positionOffset.rotation);
+            Transform positionOffset = MenuGroupParent.transform;
+
+            GameObject instance = Instantiate(gTitle, MenuGroupParent.transform);
+
+            instance.transform.localPosition = new Vector3(0, _canvasHeightNormalized - _offsetYAxis - _offsetYAxisElementHeight, 0);
+
             _offsetYAxis += _offsetYAxisPadding;
         }
 
+
+        // Activate first game 
+        if (gameTitleCards[startGameIndex])
+        {
+            Instantiate(gameTitleCards[startGameIndex].gameObject.GetComponentInChildren<GameTitleCardController>().gameBaseGameObject, GameGroupParent.transform.position, GameGroupParent.transform.rotation, GameGroupParent.transform);
+        }
+
+    }
+
+    public void Start()
+    {
+        HideGameSelectionMenu();
     }
 
 
@@ -51,11 +72,51 @@ public class GameSelectionMenuController : MonoBehaviour
             Destroy(gameBaseClass.gameObject);
         }
 
-
-
-
         // start selected game
-        Instantiate(gTC.gameBaseGameObject, new Vector3(0, 0, 14.46805f), transform.rotation);
+        Instantiate(gTC.gameBaseGameObject, GameGroupParent.transform.position, GameGroupParent.transform.rotation, GameGroupParent.transform);
+        HideGameSelectionMenu();
+        HidePointer();
+    }
+
+
+    public void ShowGameSelectionMenu()
+    {
+        this.MenuGroupParent.SetActive(true);
+    }
+
+    public void HideGameSelectionMenu()
+    {
+        this.MenuGroupParent.SetActive(false);
+    }
+
+    public void ShowPointer()
+    {
+        this.Pointer.SetActive(true);
+    }
+
+    public void HidePointer()
+    {
+        this.Pointer.SetActive(false);
+    }
+
+
+    public void StartPauseGameEventHandler(GameObject emitter)
+    {
+        ShowPointer();
+
+        Pointer.GetComponent<FlatscreenPlayerTransformHandler>().SetPlayersController(emitter.GetComponent<CylinderToFlatscreenPosition>());
+        Pointer.GetComponent<MenuPointerController>().StartLoadingIndicator(() =>
+        {
+            ShowGameSelectionMenu();
+
+        });
 
     }
+    public void CancelPauseGameEventHandler(GameObject emitter)
+    {
+        Pointer.GetComponent<MenuPointerController>().CancelLoadingIndicator();
+        HidePointer();
+        HideGameSelectionMenu();
+    }
+
 }

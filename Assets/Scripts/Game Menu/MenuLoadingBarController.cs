@@ -14,8 +14,6 @@ public class MenuLoadingBarController : MonoBehaviour
         loadingCircle = GetComponentInChildren<Image>();
         flatScreenPositionHandler = GetComponent<FlatscreenPlayerTransformHandler>();   
         SetLoadingCircleFillAmount(0f);
-        InteractionAreaController.Instance.InteractionStarted += StartLoading;
-        InteractionAreaController.Instance.InteractionAborted += StopLoading;
     }
 
     private void StartLoading(CylinderToFlatscreenPosition _interactingPlayer, float _activationTime)

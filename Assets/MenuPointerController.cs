@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -19,6 +20,9 @@ public class MenuPointerController : MonoBehaviour
     }
 
 
+
+
+
     private void OnTriggerEnter(Collider colliderTarget)
     {
         if (colliderTarget.gameObject.CompareTag("GameTitleCard"))
@@ -32,24 +36,36 @@ public class MenuPointerController : MonoBehaviour
 
 
             // Start loading Coroutine
-            StartCoroutine(LoadingCoroutine());
-
+            StartLoadingIndicator(ExecuteStartGame);
         }
     }
+
+
+    public void StartLoadingIndicator(Action callback)
+    {
+
+        StartCoroutine(LoadingCoroutine(callback));
+    }
+
+
+    public void CancelLoadingIndicator()
+    {
+        StopAllCoroutines();
+        SetLoadingCircleFillAmount(0f);
+    }
+
 
     private void OnTriggerExit(Collider colliderTarget)
     {
         if (colliderTarget.gameObject.CompareTag("GameTitleCard"))
         {
-
-            StopAllCoroutines();
-            SetLoadingCircleFillAmount(0f);
+            CancelLoadingIndicator();
             _justCollidedWith = null;
         }
 
     }
 
-    private IEnumerator LoadingCoroutine()
+    public IEnumerator LoadingCoroutine(Action callback)
     {
         float _elapsedTime = 0f;
 
@@ -61,7 +77,7 @@ public class MenuPointerController : MonoBehaviour
         }
 
         SetLoadingCircleFillAmount(0f);
-        ExecuteStartGame();
+        callback.Invoke();
     }
 
     private void SetLoadingCircleFillAmount(float fillAmount)

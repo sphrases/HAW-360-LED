@@ -62,7 +62,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        InteractionAreaController.Instance.InteractionCompleted += ActivateGameMenu;
         ContinueButton.ButtonActivated += DeactivateGameMenu;
         ChangeGameButton.ButtonActivated += ActivateGameSelectionMenu;
         // GameSelectionMenu.StartGame += StartGame;
@@ -161,8 +160,5 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        InteractionAreaController.Instance.InteractionCompleted -= ActivateGameMenu;
-        ContinueButton.ButtonActivated -= DeactivateGameMenu;
-        ChangeGameButton.ButtonActivated -= ActivateGameSelectionMenu;
     }
 }
