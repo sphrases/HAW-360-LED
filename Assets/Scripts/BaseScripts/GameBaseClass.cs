@@ -14,7 +14,17 @@ public class GameBaseClass : MonoBehaviour
     public Boolean gameCurrentlyRunning;
     public UnityEvent StartGameEvent;
     public UnityEvent StopGameEvent;
+    [HideInInspector] public GameObject[] AvailableControllers;
 
+    private void Awake()
+    {
+        GetAvailableControllers();
+    }
+
+    private void GetAvailableControllers()
+    {
+        AvailableControllers = GameObject.FindGameObjectsWithTag("CustomGameController");
+    }
 
     public void HandleStartGame()
     {
