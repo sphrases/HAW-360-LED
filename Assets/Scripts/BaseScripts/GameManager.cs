@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         InteractionAreaController.Instance.InteractionCompleted += ActivateGameMenu;
         ContinueButton.ButtonActivated += DeactivateGameMenu;
         ChangeGameButton.ButtonActivated += ActivateGameSelectionMenu;
-        GameSelectionMenu.StartGame += StartGame;
+        // GameSelectionMenu.StartGame += StartGame;
         InitializeGame();
     }
 

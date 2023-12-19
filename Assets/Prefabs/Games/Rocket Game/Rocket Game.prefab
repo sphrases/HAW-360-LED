@@ -333,7 +333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7036400063984584319
 Transform:
   m_ObjectHideFlags: 0
@@ -367,6 +367,12 @@ MonoBehaviour:
   gameTitleCard: {fileID: 4334702678207895378, guid: dd0639ac1b2a1b04ab158fa84f0738e2,
     type: 3}
   gameCurrentlyRunning: 0
+  StartGameEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  StopGameEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7349837964004614385
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
+
+
     public bool SpawnRandom = true;
     public SpawnInfo ThisSpawnInfo;
     public GameObject MeteoritePrefab;

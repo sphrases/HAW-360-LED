@@ -11,6 +11,7 @@ TagManager:
   - Map
   - Platform
   - Spikes
+  - GameTitleCard
   layers:
   - Default
   - TransparentFX

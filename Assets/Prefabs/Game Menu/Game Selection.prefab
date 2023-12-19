@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab14bc0fc8e42242ae80ceb649ef5bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameBaseClasses: []
+  CalculationCanvas: {fileID: 0}
+  gameTitleCards: []
 --- !u!1 &2075523906219680152
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +60,7 @@ GameObject:
   - component: {fileID: 619372092207578711}
   - component: {fileID: 7079246894434610433}
   - component: {fileID: 5710998914729485560}
+  - component: {fileID: 5225980575860838856}
   m_Layer: 0
   m_Name: 'Pointer '
   m_TagString: Pointer
@@ -197,3 +199,30 @@ MonoBehaviour:
   UseXPosition: 1
   UseYPosition: 1
   UseZRotation: 1
+--- !u!114 &5225980575860838856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075523906219680152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159e130d1c1d4bf4d87248105654c464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleStartGame:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6056111277210831005}
+        m_TargetAssemblyTypeName: GameSelectionMenuController, Assembly-CSharp
+        m_MethodName: StartGameTriggered
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
