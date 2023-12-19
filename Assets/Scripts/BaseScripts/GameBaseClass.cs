@@ -8,6 +8,8 @@ using UnityEngine.Events;
 
 public class GameBaseClass : MonoBehaviour
 {
+    public int MaxPlayerAmount;
+    public GameObject PlayerPrefab;
     public string gameTitle;
     public string gameDescription;
     public GameObject gameTitleCard;
@@ -19,6 +21,7 @@ public class GameBaseClass : MonoBehaviour
     private void Awake()
     {
         GetAvailableControllers();
+        SpawnPlayers();
     }
 
     private void GetAvailableControllers()
@@ -34,6 +37,15 @@ public class GameBaseClass : MonoBehaviour
     public void HandleStopGame()
     {
         StopGameEvent.Invoke();
+    }
+
+    void SpawnPlayers()
+    {
+        for (int i = 0; (i < AvailableControllers.Length) && (i < MaxPlayerAmount); i++)
+        {
+            GameObject spawnedPlayer = Instantiate(PlayerPrefab, transform);
+            spawnedPlayer.GetComponentInChildren<FlatscreenPlayerTransformHandler>().ThisPlayersController = AvailableControllers[i].GetComponent<CylinderToFlatscreenPosition>();
+        }
     }
 
 }

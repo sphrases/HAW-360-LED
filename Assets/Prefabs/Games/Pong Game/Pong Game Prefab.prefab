@@ -289,6 +289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c238f6d083df0c34a9d26d99d76ecd35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxPlayerAmount: 2
+  PlayerPrefab: {fileID: 8576564834366989652, guid: 46777a460e895a24a8ddbd4d1a1e1c91,
+    type: 3}
   gameTitle: Pong Game
   gameDescription: Pong Description
   gameTitleCard: {fileID: 8758384909356531815, guid: d798fa129f1cbce409f232d830fe9aa6,
@@ -337,10 +340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a5271a99f4c3d4da7db5d22c8e1d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxPlayerAmount: 2
-  MinPlayerAmount: 1
-  PlayerPrefab: {fileID: 8576564834366989652, guid: 46777a460e895a24a8ddbd4d1a1e1c91,
-    type: 3}
 --- !u!1 &5371853280600764402
 GameObject:
   m_ObjectHideFlags: 0
