@@ -16,8 +16,8 @@ public class GameSelectionMenuController : MonoBehaviour
 
 
     private float _canvasHeightNormalized;
-    private float _offsetYAxisPadding = 2.5f;
-    private float _offsetYAxisElementHeight = 1;
+    public float _offsetYAxisPadding = 2.5f;
+    public float _offsetYAxisElementHeight = 1;
     private float _offsetYAxis = 0;
 
 
