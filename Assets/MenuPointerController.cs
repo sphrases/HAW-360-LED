@@ -19,10 +19,6 @@ public class MenuPointerController : MonoBehaviour
         SetLoadingCircleFillAmount(0f);
     }
 
-
-
-
-
     private void OnTriggerEnter(Collider colliderTarget)
     {
         if (colliderTarget.gameObject.CompareTag("GameTitleCard"))
@@ -39,7 +35,6 @@ public class MenuPointerController : MonoBehaviour
             StartLoadingIndicator(ExecuteStartGame);
         }
     }
-
 
     public void StartLoadingIndicator(Action callback)
     {
