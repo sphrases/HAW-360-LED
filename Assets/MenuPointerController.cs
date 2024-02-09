@@ -30,7 +30,6 @@ public class MenuPointerController : MonoBehaviour
             // Debug.Log("Collision filtered: " + controller.gameBaseClass.gameTitle);
             _justCollidedWith = controller;
 
-
             // Start loading Coroutine
             StartLoadingIndicator(ExecuteStartGame);
         }
@@ -38,17 +37,14 @@ public class MenuPointerController : MonoBehaviour
 
     public void StartLoadingIndicator(Action callback)
     {
-
         StartCoroutine(LoadingCoroutine(callback));
     }
-
 
     public void CancelLoadingIndicator()
     {
         StopAllCoroutines();
         SetLoadingCircleFillAmount(0f);
     }
-
 
     private void OnTriggerExit(Collider colliderTarget)
     {
@@ -79,7 +75,6 @@ public class MenuPointerController : MonoBehaviour
     {
         _loadingCircle.fillAmount = fillAmount;
     }
-
 
     private void ExecuteStartGame()
     {

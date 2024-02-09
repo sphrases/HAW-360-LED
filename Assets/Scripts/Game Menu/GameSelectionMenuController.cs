@@ -86,6 +86,7 @@ public class GameSelectionMenuController : MonoBehaviour
 
     public void HideGameSelectionMenu()
     {
+        Debug.LogError("hidden");
         this.MenuGroupParent.SetActive(false);
     }
 
@@ -112,10 +113,12 @@ public class GameSelectionMenuController : MonoBehaviour
         });
 
     }
+
     public void CancelPauseGameEventHandler(GameObject emitter)
     {
         Pointer.GetComponent<MenuPointerController>().CancelLoadingIndicator();
         HidePointer();
+        Debug.LogError("canceled");
         HideGameSelectionMenu();
     }
 

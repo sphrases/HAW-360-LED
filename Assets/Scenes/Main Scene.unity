@@ -2752,7 +2752,7 @@ PrefabInstance:
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
       propertyPath: _offsetYAxisPadding
-      value: 1
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
@@ -2762,7 +2762,7 @@ PrefabInstance:
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
       propertyPath: gameTitleCards.Array.size
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
@@ -2785,31 +2785,31 @@ PrefabInstance:
         type: 3}
       propertyPath: gameTitleCards.Array.data[2]
       value: 
-      objectReference: {fileID: 2512091045890777770, guid: e73e6a5555c6a1d45a2f87b40271ad86,
+      objectReference: {fileID: 8456374352546915860, guid: 6e06b105ff3b8034281f315600622964,
         type: 3}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
       propertyPath: gameTitleCards.Array.data[3]
       value: 
-      objectReference: {fileID: 3093653374953286907, guid: 9948e26e151ade04294843077315e213,
+      objectReference: {fileID: 3601096461035909891, guid: 6ce30954e6d11ba41aa5175137856fed,
         type: 3}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
       propertyPath: gameTitleCards.Array.data[4]
       value: 
-      objectReference: {fileID: 2976424577989399553, guid: d0bae59fa65c8d748a845ecda17f2f0c,
+      objectReference: {fileID: 3601096461035909891, guid: 6ce30954e6d11ba41aa5175137856fed,
         type: 3}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
       propertyPath: gameTitleCards.Array.data[5]
       value: 
-      objectReference: {fileID: 8456374352546915860, guid: 6e06b105ff3b8034281f315600622964,
+      objectReference: {fileID: 3601096461035909891, guid: 6ce30954e6d11ba41aa5175137856fed,
         type: 3}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
       propertyPath: gameTitleCards.Array.data[6]
       value: 
-      objectReference: {fileID: 7581264173494700341, guid: ce5bddbeb4d49f642b43d2cfad75ba5c,
+      objectReference: {fileID: 3601096461035909891, guid: 6ce30954e6d11ba41aa5175137856fed,
         type: 3}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
