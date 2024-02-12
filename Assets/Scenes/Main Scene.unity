@@ -1059,7 +1059,7 @@ PrefabInstance:
     - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
         type: 3}
       propertyPath: TrackingMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
         type: 3}
@@ -2423,7 +2423,7 @@ PrefabInstance:
     - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
         type: 3}
       propertyPath: TrackingMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
         type: 3}
@@ -2773,25 +2773,25 @@ PrefabInstance:
         type: 3}
       propertyPath: gameTitleCards.Array.data[0]
       value: 
-      objectReference: {fileID: 8758384909356531815, guid: d798fa129f1cbce409f232d830fe9aa6,
+      objectReference: {fileID: 3601096461035909891, guid: 6ce30954e6d11ba41aa5175137856fed,
         type: 3}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
       propertyPath: gameTitleCards.Array.data[1]
       value: 
-      objectReference: {fileID: 4334702678207895378, guid: dd0639ac1b2a1b04ab158fa84f0738e2,
+      objectReference: {fileID: 8758384909356531815, guid: d798fa129f1cbce409f232d830fe9aa6,
         type: 3}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
       propertyPath: gameTitleCards.Array.data[2]
       value: 
-      objectReference: {fileID: 8456374352546915860, guid: 6e06b105ff3b8034281f315600622964,
+      objectReference: {fileID: 4334702678207895378, guid: dd0639ac1b2a1b04ab158fa84f0738e2,
         type: 3}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
       propertyPath: gameTitleCards.Array.data[3]
       value: 
-      objectReference: {fileID: 3601096461035909891, guid: 6ce30954e6d11ba41aa5175137856fed,
+      objectReference: {fileID: 8456374352546915860, guid: 6e06b105ff3b8034281f315600622964,
         type: 3}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}

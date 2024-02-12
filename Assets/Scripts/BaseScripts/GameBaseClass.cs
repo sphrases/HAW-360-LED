@@ -43,7 +43,7 @@ public class GameBaseClass : MonoBehaviour
     {
         for (int i = 0; (i < AvailableControllers.Length) && (i < MaxPlayerAmount); i++)
         {
-            GameObject spawnedPlayer = Instantiate(PlayerPrefab, transform);
+            GameObject spawnedPlayer = Instantiate(PlayerPrefab, transform.position, Quaternion.identity, transform);
             spawnedPlayer.GetComponentInChildren<FlatscreenPlayerTransformHandler>().ThisPlayersController = AvailableControllers[i].GetComponent<CylinderToFlatscreenPosition>();
         }
     }

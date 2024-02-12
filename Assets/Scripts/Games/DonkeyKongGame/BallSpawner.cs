@@ -22,7 +22,7 @@ public class BallSpawner : MonoBehaviour
 
             if(_elapsedTime > SpawnInterval)
             {
-                Instantiate(BallPrefab, transform.position, transform.rotation);
+                Instantiate(BallPrefab, transform.position, transform.rotation, transform);
                 _elapsedTime = 0f;
             }
 
