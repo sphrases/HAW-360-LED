@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class PlayerMovementHandler : MonoBehaviour
+public class RocketMovementHandler : MonoBehaviour
 {
     public float XPositionBounds = 9.6f;
     public float PlayerSpeed = 5f;
+
+    public float SineAmplitude = 1f; 
+    public float SineFrequency = 1f; 
+    private float sineOffset;
 
     private Rigidbody rb;
 
     void Start()
     {
+        sineOffset = Random.Range(0f, 2f * Mathf.PI);
         rb = GetComponent<Rigidbody>();
     }
 
@@ -19,6 +24,7 @@ public class PlayerMovementHandler : MonoBehaviour
     {
         ClampZRotation();
         CheckXPosition();
+        SetYPosition();
         SetVelocity();
     }
 
@@ -27,6 +33,12 @@ public class PlayerMovementHandler : MonoBehaviour
         Vector3 _localUp = transform.up * PlayerSpeed;
         Vector3 _worldUp = transform.TransformDirection(_localUp);
         rb.velocity = _localUp;
+    }
+
+    void SetYPosition()
+    {
+        float newY = Mathf.Sin(Time.time * SineFrequency + sineOffset) * SineAmplitude;
+        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
     }
 
     void ClampZRotation()

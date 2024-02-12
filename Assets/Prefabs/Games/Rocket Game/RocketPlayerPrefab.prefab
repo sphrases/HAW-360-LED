@@ -55,9 +55,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisPlayersController: {fileID: 0}
-  UseXPosition: 1
-  UseYPosition: 1
-  UseZRotation: 0
+  UseXPosition: 0
+  UseYPosition: 0
+  UseZRotation: 1
 --- !u!114 &4132391487207431692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,13 +94,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449885970091694452}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5dd8932b59e28547967708c61b84d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   XPositionBounds: 9.6
   PlayerSpeed: 7
+  SineAmplitude: 1.5
+  SineFrequency: 2
 --- !u!114 &5186567242642582682
 MonoBehaviour:
   m_ObjectHideFlags: 0
