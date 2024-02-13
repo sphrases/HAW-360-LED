@@ -11,15 +11,31 @@ public class RocketMovementController : MonoBehaviour
 
     private NavMeshAgent agent;
     private Rigidbody rb;
+    private bool startedFollowing = false;
+    private DamageDealer damageDealer;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        damageDealer = GetComponent<DamageDealer>();
     }
 
-    void Start()
+    void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(LifetimeCountdown());
+        if(!other.CompareTag("Player"))
+        {
+            return;
+        }
+
+        if (!startedFollowing)
+        {
+            SetDestination(other.gameObject);
+            startedFollowing = true;
+        }
+        else
+        {
+            damageDealer.DamageOtherPlayer(other);
+        }
     }
 
     private void Update()
@@ -42,7 +58,7 @@ public class RocketMovementController : MonoBehaviour
             }
         }
 
-        MoveForward();
+        StartMovingForward();
     }
 
     IEnumerator FollowOtherPlayerCoroutine(GameObject _otherPlayer)
@@ -61,7 +77,7 @@ public class RocketMovementController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void MoveForward()
+    private void StartMovingForward()
     {
         rb.velocity = transform.right * Speed * Time.deltaTime;
     }

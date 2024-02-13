@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -67,9 +64,7 @@ public class PickupSpawner : MonoBehaviour
     void SpawnPickup()
     {
         Vector3 _randomPositionOnNavMesh = GetRandomPositionOnNavMesh();
-        GameObject _pickup = Instantiate(PickupPrefab, _randomPositionOnNavMesh, Quaternion.identity);
-        PickupObject.PickupType _randomPickupType = GetRandomPickupType();
-        _pickup.GetComponent<PickupObject>().ThisPickupType = _randomPickupType;
+        Instantiate(PickupPrefab, _randomPositionOnNavMesh, Quaternion.identity);
     }
 
     Vector3 GetRandomPositionOnNavMesh()
@@ -83,13 +78,6 @@ public class PickupSpawner : MonoBehaviour
         }
 
         return transform.position;
-    }
-
-    public PickupObject.PickupType GetRandomPickupType()
-    {
-        Array _enumValues = Enum.GetValues(typeof(PickupObject.PickupType));
-        PickupObject.PickupType _randomEnumValue = (PickupObject.PickupType)_enumValues.GetValue(UnityEngine.Random.Range(0, _enumValues.Length));
-        return _randomEnumValue;
     }
 
     void StopSpawning()

@@ -8,22 +8,22 @@ public class DamageDealer : MonoBehaviour
 
     private bool detectCollisions = true;
 
-    private void OnCollisionEnter(Collision collision)
+    public void DamageOtherPlayer(Collider other)
     {
-        HealthController _healthController = collision.gameObject.GetComponent<HealthController>();
+        //HealthController _healthController = other.gameObject.GetComponent<HealthController>();
 
-        if(_healthController == null)
-        {
-            return;
-        }
+        //if(_healthController == null)
+        //{
+        //    return;
+        //}
 
-        if (!detectCollisions)
-        {
-            return;
-        }
+        //if (!detectCollisions)
+        //{
+        //    return;
+        //}
 
-        detectCollisions = false;
-        _healthController.Health -= Damage;
-        Destroy(gameObject);
+        //detectCollisions = false;
+        //_healthController.Health -= Damage;
+        //Destroy(gameObject);
     }
 }
