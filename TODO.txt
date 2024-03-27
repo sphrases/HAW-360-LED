@@ -1,0 +1,7 @@
+- Donkey Kong
+	- doppelt springen verhindern
+	- Collectables einbauen
+	- Plattformen verlängern mit weniger Springmöglichkeiten zur nächsten da man sonst nicht viel laufen muss
+- Im Menü verhindern dass Menü wieder ausgeht wenn man Interaction Zone verlässt
+- Vorheriges Spiel wird nach Wechsel zu neuem Spiel nicht ausgeschaltet
+- Soundeffekte und Musik einbauen

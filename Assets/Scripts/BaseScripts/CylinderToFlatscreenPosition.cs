@@ -13,6 +13,7 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
     public GameObject Cylinder;
     public GameObject CalculationCanvas;
     public FlatscreenPlayerTransformHandler CorrespondingInGamePlayer;
+    public float RealCylinderLowerEdge = 0.7f;
 
     private Vector2 oldScreenPosition = new Vector2(0, 0);
 
@@ -67,13 +68,12 @@ public class CylinderToFlatscreenPosition : MonoBehaviour
 
         float _anglePercentage = _angle;
 
-        float _yPercentage = (closestPositionOnCylinderToController.y / 2);
+        float _yPercentage = closestPositionOnCylinderToController.y - RealCylinderLowerEdge;
 
 
         RectTransform _flatscreenRectTransform = CalculationCanvas.GetComponent<RectTransform>();
         float _xOnFlatscreen = ((_anglePercentage / 360) * _flatscreenRectTransform.rect.width) - (_flatscreenRectTransform.rect.width / 2); // x coordinate is basically a percentage of the screenWidth measured by percentage of angle to 360� (assumption that center of screen is 0,0)
         float _yOnFlatscreen = (_yPercentage * _flatscreenRectTransform.rect.height) - (_flatscreenRectTransform.rect.height / 2); // y coordinate is basically a percentage of screenHeight (assumption that center of screen is 0,0)
-
 
         // Debug.Log("y percentage:  " + _yPercentage + "; Flatscreen Height:  " + _flatscreenRectTransform.rect.height + "; Y On Flatscreen:  " + _yOnFlatscreen);
 

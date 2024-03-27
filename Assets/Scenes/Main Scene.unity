@@ -563,6 +563,7 @@ GameObject:
   - component: {fileID: 366495837}
   - component: {fileID: 366495839}
   - component: {fileID: 366495838}
+  - component: {fileID: 366495840}
   m_Layer: 0
   m_Name: Ortho Camera (1)
   m_TagString: Untagged
@@ -680,6 +681,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &366495840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366495836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac11f2398f39a194197b481b9ec5d315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 3
+  height: 2
 --- !u!1 &380300020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1081,11 @@ PrefabInstance:
       propertyPath: CalculationCanvas
       value: 
       objectReference: {fileID: 1593644910}
+    - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
+        type: 3}
+      propertyPath: RealCylinderLowerEdge
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7031494327186437757, guid: 7ec1115ec9a9eb24194083740cc7bb46,
         type: 3}
       propertyPath: targetCylinder
@@ -1207,6 +1227,7 @@ GameObject:
   - component: {fileID: 636468854}
   - component: {fileID: 636468857}
   - component: {fileID: 636468855}
+  - component: {fileID: 636468858}
   m_Layer: 0
   m_Name: Ortho Camera
   m_TagString: Untagged
@@ -1324,6 +1345,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &636468858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636468853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac11f2398f39a194197b481b9ec5d315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 3
+  height: 2
 --- !u!1 &763106706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2214,8 +2249,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.335, y: 1, z: -0.569}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1756022429}
   - {fileID: 1182053484}
@@ -2430,6 +2465,11 @@ PrefabInstance:
       propertyPath: CalculationCanvas
       value: 
       objectReference: {fileID: 1593644910}
+    - target: {fileID: 6745052441881099103, guid: 7ec1115ec9a9eb24194083740cc7bb46,
+        type: 3}
+      propertyPath: RealCylinderLowerEdge
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7031494327186437757, guid: 7ec1115ec9a9eb24194083740cc7bb46,
         type: 3}
       propertyPath: targetCylinder
