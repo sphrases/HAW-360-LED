@@ -49,7 +49,7 @@ public class PowerUpSpawner : MonoBehaviour
     {
         Vector3 _spawnPosition = new Vector3(Random.Range(-MaxXValue, MaxXValue), transform.position.y, transform.position.z);
         int _randomPowerUpPosition = Random.Range(0, PowerUps.Count - 1);
-        GameObject _powerUp = Instantiate(PowerUps[_randomPowerUpPosition], _spawnPosition, transform.rotation);
+        GameObject _powerUp = Instantiate(PowerUps[_randomPowerUpPosition], _spawnPosition, transform.rotation, transform);
         _powerUp.transform.parent = transform;
         PowerUpController _powerUpController = _powerUp.GetComponent<PowerUpController>();
         _powerUpController.Lifetime = SpawnInterval;

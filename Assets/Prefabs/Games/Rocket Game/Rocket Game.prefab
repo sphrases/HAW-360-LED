@@ -99,7 +99,7 @@ MonoBehaviour:
   EnemyShipPrefab: {fileID: 7913573651656767773, guid: 4ef6c95ad30182c448c5acd78d67ebb9,
     type: 3}
   SpawnPositionAmount: 18
-  RandomSpawnInterval: 0.4
+  RandomSpawnInterval: 0.8
 --- !u!1 &4185822715534577036
 GameObject:
   m_ObjectHideFlags: 0

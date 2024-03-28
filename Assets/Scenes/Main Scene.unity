@@ -2779,6 +2779,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Selection
       objectReference: {fileID: 0}
+    - target: {fileID: 5225980575860838856, guid: 1eb5a0d02652236469de05e2ae0b8f55,
+        type: 3}
+      propertyPath: InteractionTime
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}
       propertyPath: GameGroupParent

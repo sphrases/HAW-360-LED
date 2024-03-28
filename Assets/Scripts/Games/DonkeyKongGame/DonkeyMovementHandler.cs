@@ -9,6 +9,7 @@ public class DonkeyMovementHandler : MonoBehaviour
     public float RefreshTime = 0.1f;
     public float JumpForce = 2f;
     public float JumpTime = 0.8f;
+    public AudioSource JumpSound;
 
     private float lastYPosition;
     private float timeSinceLastJump = 0f;
@@ -38,6 +39,7 @@ public class DonkeyMovementHandler : MonoBehaviour
             {
                 rb.AddForce(0f, JumpForce, 0f);
                 timeSinceLastJump = 0f;
+                JumpSound.Play();
             }
 
             lastYPosition = PlayerTransform.position.y;

@@ -14,7 +14,7 @@ public class GameSelectionMenuController : MonoBehaviour
     public int startGameIndex = 0;
 
 
-
+    private List<GameObject> instantiatedGames = new List<GameObject>();
     private float _canvasHeightNormalized;
     public float _offsetYAxisPadding = 2.5f;
     public float _offsetYAxisElementHeight = 1;
@@ -44,9 +44,9 @@ public class GameSelectionMenuController : MonoBehaviour
         // Activate first game 
         if (gameTitleCards[startGameIndex])
         {
-            Instantiate(gameTitleCards[startGameIndex].gameObject.GetComponentInChildren<GameTitleCardController>().gameBaseGameObject, GameGroupParent.transform.position, GameGroupParent.transform.rotation, GameGroupParent.transform);
+            GameObject gameInstance = Instantiate(gameTitleCards[startGameIndex].gameObject.GetComponentInChildren<GameTitleCardController>().gameBaseGameObject, GameGroupParent.transform.position, GameGroupParent.transform.rotation, GameGroupParent.transform);
+            instantiatedGames.Add(gameInstance);
         }
-
     }
 
     public void Start()
@@ -62,18 +62,9 @@ public class GameSelectionMenuController : MonoBehaviour
 
     public void StartGameTriggered(GameTitleCardController gTC)
     {
-
-        // Debug.Log("Started Game   " + gTC.gameBaseClass.gameTitle);
-        GameBaseClass[] foundGameClasses = FindObjectsByType<GameBaseClass>(FindObjectsSortMode.None);
-
-        // Kill all games
-        foreach (GameBaseClass gameBaseClass in foundGameClasses)
-        {
-            Destroy(gameBaseClass.gameObject);
-        }
-
         // start selected game
-        Instantiate(gTC.gameBaseGameObject, GameGroupParent.transform.position, GameGroupParent.transform.rotation, GameGroupParent.transform);
+        GameObject gameInstance = Instantiate(gTC.gameBaseGameObject, GameGroupParent.transform.position, GameGroupParent.transform.rotation, GameGroupParent.transform);
+        instantiatedGames.Add(gameInstance);
         HideGameSelectionMenu();
         HidePointer();
     }
@@ -82,6 +73,11 @@ public class GameSelectionMenuController : MonoBehaviour
     public void ShowGameSelectionMenu()
     {
         this.MenuGroupParent.SetActive(true);
+
+        foreach(GameObject gameInstance in instantiatedGames)
+        {
+            Destroy(gameInstance);
+        }
     }
 
     public void HideGameSelectionMenu()
@@ -100,7 +96,6 @@ public class GameSelectionMenuController : MonoBehaviour
         this.Pointer.SetActive(false);
     }
 
-
     public void StartPauseGameEventHandler(GameObject emitter)
     {
         ShowPointer();
@@ -109,13 +104,17 @@ public class GameSelectionMenuController : MonoBehaviour
         Pointer.GetComponent<MenuPointerController>().StartLoadingIndicator(() =>
         {
             ShowGameSelectionMenu();
-
         });
 
     }
 
     public void CancelPauseGameEventHandler(GameObject emitter)
     {
+        if(MenuGroupParent.activeSelf)
+        {
+            return; // to prevent quitting game menu without selecting a game because i have no idea where thats actually called from so i cant remove the call
+        }
+
         Pointer.GetComponent<MenuPointerController>().CancelLoadingIndicator();
         HidePointer();
         Debug.LogError("canceled");

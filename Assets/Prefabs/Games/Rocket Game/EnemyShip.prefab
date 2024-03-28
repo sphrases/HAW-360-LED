@@ -78,8 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc92856b70601f4a88f94e468df6a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  YVelocity: 2
-  XVelocity: 2
+  YVelocity: 1.5
+  XVelocity: 3
   LifeTime: 10
 --- !u!65 &4672607449624752671
 BoxCollider:

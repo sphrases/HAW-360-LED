@@ -96,7 +96,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnEnemyShipRandomly()
     {
-        GameObject _enemyShip = Instantiate(EnemyShipPrefab, transform.position, transform.rotation);
+        GameObject _enemyShip = Instantiate(EnemyShipPrefab, transform.position, transform.rotation, transform);
         _enemyShip.transform.parent = transform;
         Vector3 _initialPosition = EnemyShipPrefab.transform.position;
         float _columnDistance = flatscreenRectTransform.rect.width / SpawnPositionAmount;
@@ -119,7 +119,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     void SpawnMeteoriteRandomly()
     {
-        GameObject _meteorite = Instantiate(MeteoritePrefab, transform.position, Random.rotation);
+        GameObject _meteorite = Instantiate(MeteoritePrefab, transform.position, Random.rotation, transform);
         _meteorite.transform.parent = transform;
         Vector3 _initialPosition = MeteoritePrefab.transform.position;
         float _columnDistance = flatscreenRectTransform.rect.width / SpawnPositionAmount;

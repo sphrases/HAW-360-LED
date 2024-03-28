@@ -8,6 +8,7 @@ public class MenuPointerController : MonoBehaviour
 {
     public UnityEvent<GameTitleCardController> handleStartGame;
     public float InteractionTime = 3f;
+    public AudioSource LoadingSound;
 
     private Image _loadingCircle;
     private GameTitleCardController _justCollidedWith;
@@ -42,6 +43,7 @@ public class MenuPointerController : MonoBehaviour
 
     public void CancelLoadingIndicator()
     {
+        LoadingSound.Stop();
         StopAllCoroutines();
         SetLoadingCircleFillAmount(0f);
     }
@@ -59,6 +61,7 @@ public class MenuPointerController : MonoBehaviour
     public IEnumerator LoadingCoroutine(Action callback)
     {
         float _elapsedTime = 0f;
+        LoadingSound.Play();
 
         while (_elapsedTime < InteractionTime)
         {

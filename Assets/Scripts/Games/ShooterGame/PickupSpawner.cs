@@ -64,7 +64,7 @@ public class PickupSpawner : MonoBehaviour
     void SpawnPickup()
     {
         Vector3 _randomPositionOnNavMesh = GetRandomPositionOnNavMesh();
-        Instantiate(PickupPrefab, _randomPositionOnNavMesh, Quaternion.identity);
+        Instantiate(PickupPrefab, _randomPositionOnNavMesh, Quaternion.identity, transform);
     }
 
     Vector3 GetRandomPositionOnNavMesh()
