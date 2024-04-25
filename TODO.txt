@@ -2,6 +2,9 @@ Others
 - Der Screen scheint auf der Y-Achse gestaucht zu sein (oder auf der X-Achse gestreckt?), 
   bevor man das Spiel startet ist es in der Preview aber richtig?
 - es fehlen zwei vive lighthouses
+- Ralf das Geld für das Werkzeug abluchsen
+- Die Vive Packung wiederfinden
+- Zwei weitere Lighthouses besorgen
 
 Games
 - Der Pong ball ist zu schnell
