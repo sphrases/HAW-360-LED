@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 366495838}
   - component: {fileID: 366495840}
   m_Layer: 0
-  m_Name: Ortho Camera (1)
+  m_Name: 'Ortho Camera '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -672,7 +672,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 4
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -1229,7 +1229,7 @@ GameObject:
   - component: {fileID: 636468855}
   - component: {fileID: 636468858}
   m_Layer: 0
-  m_Name: Ortho Camera
+  m_Name: Cylinder Projection Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2248,7 +2248,7 @@ Transform:
   m_GameObject: {fileID: 1680829874}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.335, y: 1, z: -0.569}
+  m_LocalPosition: {x: -0.3395248, y: 1, z: -0.9942701}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 1
   m_Children:

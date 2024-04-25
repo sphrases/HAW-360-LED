@@ -1,0 +1,14 @@
+Others
+- Der Screen scheint auf der Y-Achse gestaucht zu sein (oder auf der X-Achse gestreckt?), 
+  bevor man das Spiel startet ist es in der Preview aber richtig?
+- es fehlen zwei vive lighthouses
+
+Games
+- Der Pong ball ist zu schnell
+- bei pong kann man noch keine punkte erzielen
+- bei donkey kong sind die pads viel zu lang
+- bei donkey kong passiert nichts wenn man nach unten aus dem spiel verschwindet
+
+Menu
+- Bei Spielstart wird der rote Menu Cursor nicht ausgeschaltet
+- im spielmenü läuft countdown durchgängig auch wenn man die Interaction zone verlässt
