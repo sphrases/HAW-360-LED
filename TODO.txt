@@ -8,7 +8,7 @@ Others
 
 Games
 - Der Pong ball ist zu schnell
-- bei pong kann man noch keine punkte erzielen
+- bei pong fehlt noch die goal line um punkte zu erzielen
 - bei donkey kong sind die pads viel zu lang
 - bei donkey kong passiert nichts wenn man nach unten aus dem spiel verschwindet
 
