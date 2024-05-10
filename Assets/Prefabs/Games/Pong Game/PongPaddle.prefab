@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7434586315777340579}
   - component: {fileID: 524708673358750793}
   - component: {fileID: 3591556348805734469}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: PongPaddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

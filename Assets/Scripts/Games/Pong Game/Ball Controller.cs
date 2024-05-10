@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallController : MonoBehaviour
+public class BallMovementController : MonoBehaviour
 {
     public float XPositionBounds = 9.6f;
     public float MaxVelocity = 1.0f;

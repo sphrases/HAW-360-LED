@@ -45,3 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisPlayersController: {fileID: 0}
+  UseXPosition: 1
+  UseYPosition: 1
+  UseZRotation: 1

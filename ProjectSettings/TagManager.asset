@@ -16,6 +16,7 @@ TagManager:
   - DonkeyBall
   - CustomGameControllerLeft
   - CustomGameControllerRight
+  - PongBall
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Water
   - UI
   - Game Logic
-  - 
+  - Paddle
   - 
   - 
   - 
