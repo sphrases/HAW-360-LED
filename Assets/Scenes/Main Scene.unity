@@ -1159,7 +1159,7 @@ PrefabInstance:
     - target: {fileID: 8754898407607026757, guid: 7ec1115ec9a9eb24194083740cc7bb46,
         type: 3}
       propertyPath: m_TagString
-      value: CustomGameController
+      value: CustomGameControllerRight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2553,7 +2553,7 @@ PrefabInstance:
     - target: {fileID: 8754898407607026757, guid: 7ec1115ec9a9eb24194083740cc7bb46,
         type: 3}
       propertyPath: m_TagString
-      value: CustomGameController
+      value: CustomGameControllerLeft
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2783,6 +2783,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InteractionTime
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
+        type: 3}
+      propertyPath: startGameIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6056111277210831005, guid: 1eb5a0d02652236469de05e2ae0b8f55,
         type: 3}

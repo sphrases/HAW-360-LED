@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2486901846255698722}
   - component: {fileID: 7434586315777340579}
   - component: {fileID: 524708673358750793}
+  - component: {fileID: 3591556348805734469}
   m_Layer: 6
   m_Name: PongPaddle
   m_TagString: Untagged
@@ -148,3 +149,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerInGamePosition: {fileID: 0}
   MaxPositionDisplacement: 100
+  MaxZAngleDifference: 100
+  MaxVelocity: 0
+  UseXPosition: 1
+  UseYPosition: 1
+  UseZRotation: 1
+--- !u!114 &3591556348805734469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3428116641193266283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd8b9eb9366913d4ab4a07388eab5b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftControllerMaterial: {fileID: 2100000, guid: 056b8378eaa9abc4099799b460ca1f78,
+    type: 2}
+  RightControllerMaterial: {fileID: 2100000, guid: a275ccee491fa41438a5d58a3406fe43,
+    type: 2}

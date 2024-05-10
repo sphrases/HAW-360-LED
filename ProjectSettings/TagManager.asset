@@ -14,6 +14,8 @@ TagManager:
   - GameTitleCard
   - CustomGameController
   - DonkeyBall
+  - CustomGameControllerLeft
+  - CustomGameControllerRight
   layers:
   - Default
   - TransparentFX

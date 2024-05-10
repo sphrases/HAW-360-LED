@@ -12,7 +12,7 @@ public class InteractionAreaController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("CustomGameController"))
+        if (other.CompareTag("CustomGameControllerLeft") || other.CompareTag("CustomGameControllerRight"))
         {
             StartPauseGameEvent?.Invoke(other.gameObject);
         }
@@ -20,7 +20,7 @@ public class InteractionAreaController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("CustomGameController"))
+        if (other.CompareTag("CustomGameControllerLeft") || other.CompareTag("CustomGameControllerRight"))
         {
             CancelPauseGameEvent?.Invoke(other.gameObject);
         }

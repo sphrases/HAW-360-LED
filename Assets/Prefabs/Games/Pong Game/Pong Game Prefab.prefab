@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XPositionBounds: 9.6
-  MaxVelocity: 10
+  MaxVelocity: 7
 --- !u!54 &4086095621171887969
 Rigidbody:
   m_ObjectHideFlags: 0

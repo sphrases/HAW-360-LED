@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,7 +17,7 @@ public class GameBaseClass : MonoBehaviour
     public Boolean gameCurrentlyRunning;
     public UnityEvent StartGameEvent;
     public UnityEvent StopGameEvent;
-    [HideInInspector] public GameObject[] AvailableControllers;
+    [HideInInspector] public List<GameObject> AvailableControllers;
 
     private void Awake()
     {
@@ -26,7 +27,19 @@ public class GameBaseClass : MonoBehaviour
 
     private void GetAvailableControllers()
     {
-        AvailableControllers = GameObject.FindGameObjectsWithTag("CustomGameController");
+        GameObject LeftController = GameObject.FindGameObjectWithTag("CustomGameControllerLeft");
+
+        if(LeftController != null )
+        {
+            AvailableControllers.Add(LeftController);
+        }
+
+        GameObject RightController = GameObject.FindGameObjectWithTag("CustomGameControllerRight");
+
+        if (RightController != null)
+        {
+            AvailableControllers.Add(RightController);
+        }
     }
 
     public void HandleStartGame()
@@ -41,7 +54,7 @@ public class GameBaseClass : MonoBehaviour
 
     void SpawnPlayers()
     {
-        for (int i = 0; (i < AvailableControllers.Length) && (i < MaxPlayerAmount); i++)
+        for (int i = 0; (i < AvailableControllers.Count) && (i < MaxPlayerAmount); i++)
         {
             GameObject spawnedPlayer = Instantiate(PlayerPrefab, transform.position, Quaternion.identity, transform);
             spawnedPlayer.GetComponentInChildren<FlatscreenPlayerTransformHandler>().ThisPlayersController = AvailableControllers[i].GetComponent<CylinderToFlatscreenPosition>();
