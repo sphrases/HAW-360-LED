@@ -83,7 +83,6 @@ public class GameSelectionMenuController : MonoBehaviour
 
     public void HideGameSelectionMenu()
     {
-        Debug.LogError("hidden");
         this.MenuGroupParent.SetActive(false);
     }
 
@@ -113,12 +112,12 @@ public class GameSelectionMenuController : MonoBehaviour
     {
         if(MenuGroupParent.activeSelf)
         {
+            Pointer.GetComponent<MenuPointerController>().CancelLoadingIndicator();
             return; // to prevent quitting game menu without selecting a game because i have no idea where thats actually called from so i cant remove the call
         }
 
         Pointer.GetComponent<MenuPointerController>().CancelLoadingIndicator();
         HidePointer();
-        Debug.LogError("canceled");
         HideGameSelectionMenu();
     }
 

@@ -7,8 +7,11 @@ Others
 Games
 - bei donkey kong sind die pads viel zu lang
 - bei donkey kong passiert nichts wenn man nach unten aus dem spiel verschwindet
+- bei donkey kong springt der eine irgendwie automatisch bei horizontaler bewegung
+
 - bei rocket game münzen einsammeln wie bei jetpack royride als ziel, wenn meteoriten einen treffen kann man 3s keine einsammeln
 - bei rocket game laser wie bei jetpack joyride
 
 Menu
-- im spielmenü läuft countdown durchgängig auch wenn man die Interaction zone verlässt
+- zwischen den games hinterlässt pointer traces (background hinzufügen)
+- textmeshpro isnt made red in all children of game title cards if hovered over

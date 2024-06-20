@@ -21,11 +21,9 @@ public class PongBallJuice : MonoBehaviour
     {
         // Get the change in velocity since the last frame
         Vector3 velocityChange = rb.velocity - previousVelocity;
-        Debug.Log("velocityChange: " + velocityChange);
 
         // Calculate the scale factor based on the change in velocity
         float scaleFactor = Mathf.Clamp(velocityChange.magnitude * scaleSpeed, minScale, maxScale);
-        Debug.Log("scaleFactor: " + scaleFactor);
 
         // Calculate the direction of the change in velocity
         Vector3 direction = velocityChange.normalized;

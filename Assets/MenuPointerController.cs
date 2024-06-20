@@ -22,7 +22,33 @@ public class MenuPointerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider colliderTarget)
     {
-        if (colliderTarget.gameObject.CompareTag("GameTitleCard"))
+        if(!colliderTarget.gameObject.CompareTag("GameTitleCard"))
+        {
+            return;
+        }
+
+        if ((InteractionAreaController.Instance.LeftControllerIsInInteractionArea && !InteractionAreaController.Instance.RightControllerActivatedInteractionArea) || (InteractionAreaController.Instance.RightControllerIsInInteractionArea && InteractionAreaController.Instance.RightControllerActivatedInteractionArea))
+        {
+            // If MenuPointer is colliding with a GameTitleCard, start countdown. 
+            // If countdown finishes, call handleStartGame on the GameSelectionController;
+
+            GameTitleCardController controller = colliderTarget.gameObject.GetComponent<GameTitleCardController>();
+            // Debug.Log("Collision filtered: " + controller.gameBaseClass.gameTitle);
+            _justCollidedWith = controller;
+
+            // Start loading Coroutine
+            StartLoadingIndicator(ExecuteStartGame);
+        }
+    }
+
+    private void OnTriggerStay(Collider colliderTarget)
+    {
+        if (!colliderTarget.gameObject.CompareTag("GameTitleCard"))
+        {
+            return;
+        }
+
+        if ((InteractionAreaController.Instance.LeftControllerIsInInteractionArea && !InteractionAreaController.Instance.RightControllerActivatedInteractionArea) || (InteractionAreaController.Instance.RightControllerIsInInteractionArea && InteractionAreaController.Instance.RightControllerActivatedInteractionArea))
         {
             // If MenuPointer is colliding with a GameTitleCard, start countdown. 
             // If countdown finishes, call handleStartGame on the GameSelectionController;
