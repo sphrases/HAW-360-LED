@@ -534,7 +534,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5486ff5a09276df4fb528ac78e447833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textElement: {fileID: 5089126642382408194}
+  textElements:
+  - {fileID: 5089126642382408194}
+  - {fileID: 8104227559275954252}
   gameBaseGameObject: {fileID: 1265421286691760709, guid: 94aa65578cb4acf4fae76698b7fa34bf,
     type: 3}
 --- !u!65 &806002058450272690

@@ -7,7 +7,7 @@ using TMPro;
 public class GameTitleCardController : MonoBehaviour
 {
 
-    public TextMeshProUGUI textElement;
+    public List<TextMeshProUGUI> textElements;
     public GameObject gameBaseGameObject;
     private Color _startColor = Color.white;
 
@@ -16,13 +16,18 @@ public class GameTitleCardController : MonoBehaviour
     {
         if (colliderTarget.gameObject.CompareTag("Pointer"))
         {
-            textElement.color = Color.red;
+            foreach(TextMeshProUGUI text in textElements)
+            {
+                text.color = Color.red;
+            }
         }
     }
 
     private void OnTriggerExit(Collider colliderTarget)
     {
-        textElement.color = _startColor; 
+        foreach (TextMeshProUGUI text in textElements)
+        {
+            text.color = _startColor;
+        }
     }
-
 }

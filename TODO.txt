@@ -1,4 +1,4 @@
-Others
+General
 - Der Screen scheint auf der Y-Achse gestaucht zu sein (oder auf der X-Achse gestreckt?), 
   bevor man das Spiel startet ist es in der Preview aber richtig?
 - zusätzliche zwei vive lighthouses connecten
@@ -11,6 +11,3 @@ Games
 
 - bei rocket game münzen einsammeln wie bei jetpack royride als ziel, wenn meteoriten einen treffen kann man 3s keine einsammeln
 - bei rocket game laser wie bei jetpack joyride
-
-Menu
-- textmeshpro isnt made red in all children of game title cards if hovered over
