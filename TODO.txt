@@ -2,6 +2,7 @@ Others
 - Der Screen scheint auf der Y-Achse gestaucht zu sein (oder auf der X-Achse gestreckt?), 
   bevor man das Spiel startet ist es in der Preview aber richtig?
 - zusätzliche zwei vive lighthouses connecten
+- rotationsberechnung hat sehr negativen einfluss auf framerate
 
 Games
 - bei donkey kong sind die pads viel zu lang
@@ -10,5 +11,4 @@ Games
 - bei rocket game laser wie bei jetpack joyride
 
 Menu
-- Bei Spielstart wird der rote Menu Cursor nicht ausgeschaltet
 - im spielmenü läuft countdown durchgängig auch wenn man die Interaction zone verlässt

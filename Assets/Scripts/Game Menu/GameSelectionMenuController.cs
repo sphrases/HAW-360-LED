@@ -52,6 +52,7 @@ public class GameSelectionMenuController : MonoBehaviour
     public void Start()
     {
         HideGameSelectionMenu();
+        HidePointer();
     }
 
 
