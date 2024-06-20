@@ -13,5 +13,4 @@ Games
 - bei rocket game laser wie bei jetpack joyride
 
 Menu
-- zwischen den games hinterlässt pointer traces (background hinzufügen)
 - textmeshpro isnt made red in all children of game title cards if hovered over

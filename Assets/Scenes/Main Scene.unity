@@ -1892,6 +1892,7 @@ MonoBehaviour:
   MenuGroupParent: {fileID: 1617916795}
   RightControllerIsInInteractionArea: 0
   LeftControllerIsInInteractionArea: 0
+  RightControllerActivatedInteractionArea: 0
 --- !u!54 &1467714029
 Rigidbody:
   m_ObjectHideFlags: 0
