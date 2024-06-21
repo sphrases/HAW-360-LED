@@ -9,6 +9,4 @@ Games
 - bei donkey kong passiert nichts wenn man nach unten aus dem spiel verschwindet
 - bei donkey kong springt der eine irgendwie automatisch bei horizontaler Bewegung
 
-- bei pong game einen trail für den ball
-
 - bei rocket game münzen einsammeln wie bei jetpack royride als ziel, wenn meteoriten einen treffen kann man 3s keine einsammeln, münzspuren mit kurven machen um Bewegung anzuregen
